@@ -11,7 +11,7 @@ func main() {
 	array := []int{0, 1, 1, 2, 1, 1, 2, 0, 1, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0}
 	sorted_array := make([]int, len(array))
 	sorted_array = sortAnArray(array)
-	// fmt.Println(sorted_array)
+	fmt.Println(sorted_array)
 }
 
 func sortAnArray(a []int) []int {
@@ -32,9 +32,9 @@ func sortAnArray(a []int) []int {
 	for i := range result {
 		if i < count_0 {
 			result[i] = 0
-		} else if i >= count_1 && i < count_2 {
+		} else if i >= count_0 && i < count_1 {
 			result[i] = 1
-		} else {
+		} else if i >= count_1 && i < count_2 {
 			result[i] = 2
 		}
 	}
