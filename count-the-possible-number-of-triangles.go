@@ -10,7 +10,7 @@ import (
 func main() {
 	sides := []int{10, 21, 22, 100, 101, 200, 300}
 	fmt.Println(byBruteForce(sides))
-	bySorting
+	fmt.Printn(bySorting(sides))
 
 }
 
@@ -29,7 +29,26 @@ func byBruteForce(arr []int) int {
 	return count
 }
 
-func bySorting(a []int) {
-	fmt.Println(sort.Ints(a))
+func bySorting(arr []int) int {
+	count := 0
+	sort.Ints(arr)
+	var i, j, k int
+	n := len(arr)
+	for i = 0; i < n-2; i++ {
+		k = i + 2
+		for j = i + 1; j < n; j++ {
+			for {
+				k++
+				if !(k < n && arr[i]+arr[j] > arr[k]) == true {
+					break
+				}
+			}
+			if k > j {
+				count += k - j - 1
+			}
+		}
+
+	}
+	return count
 
 }
