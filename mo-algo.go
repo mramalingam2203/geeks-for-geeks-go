@@ -21,6 +21,8 @@ func printQuerySums(a []int, q [][]int) {
 
 }
 
+// checking git profile
+
 func main() {
 	array := []int{1, 1, 2, 1, 3, 4, 5, 2, 8}
 	queries := [][]int{{0, 4}, {1, 3}, {2, 4}}
