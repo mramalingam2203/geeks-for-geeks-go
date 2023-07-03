@@ -29,14 +29,16 @@ func sortAnArray(a []int) []int {
 
 	result := make([]int, count_0+count_1+count_2)
 
-	for i := range result {
-		if i < count_0 {
-			result[i] = 0
-		} else if i >= count_0 && i < count_1 {
-			result[i] = 1
-		} else if i >= count_1 && i < count_2 {
-			result[i] = 2
-		}
+	for i := 0; i < count_0; i++ {
+		result[i] = 0
+	}
+
+	for i := count_0; i < count_0+count_1; i++ {
+		result[i] = 1
+	}
+
+	for i := count_0 + count_1; i < count_0+count_1+count_2; i++ {
+		result[i] = 2
 	}
 
 	return result
