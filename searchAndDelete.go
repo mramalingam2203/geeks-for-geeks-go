@@ -7,7 +7,9 @@ import "fmt"
 func main() {
 	a := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 	key := 7
+	remove := 8
 	fmt.Println(binarySearch(a, key))
+	deleteElement(a, remove)
 }
 
 func binarySearch(arr []int, target int) int {
@@ -47,4 +49,23 @@ func binarySearch_iter(arr []int, target int) int {
 	}
 
 	return -1 // Target not found
+}
+
+/* Function to delete an element */
+func deleteElement(arr []int, key int) {
+	n := len(arr)
+	// Find position of element to be deleted
+	pos := binarySearch(arr, key)
+
+	if pos == -1 {
+		fmt.Println("Element not found")
+		return n
+	}
+
+	// Deleting element
+	for i := pos; i < n-1; i++ {
+		arr[i] = arr[i+1]
+	}
+
+	return n - 1
 }
