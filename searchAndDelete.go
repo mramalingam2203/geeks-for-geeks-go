@@ -52,7 +52,7 @@ func binarySearch_iter(arr []int, target int) int {
 }
 
 /* Function to delete an element */
-func deleteElement(arr []int, key int) {
+func deleteElement(arr []int, key int) int {
 	n := len(arr)
 	// Find position of element to be deleted
 	pos := binarySearch(arr, key)
