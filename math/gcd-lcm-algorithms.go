@@ -5,9 +5,11 @@ package main
 import "fmt"
 
 func main() {
-	a := []int{250, 780, 390, 427, 963}
+	a := []int{2, 4, 6, 8, 16}
 	fmt.Println(gcd(23, 2))
 	fmt.Println(lcm_of_array_elements(a))
+	fmt.Println(Euclidean(a))
+	fmt.Println(gcd_array_1(a))
 }
 
 func gcd(a, b int) int {
@@ -36,4 +38,22 @@ func Euclidean(arr []int) int {
 		lcm = (lcm * arr[i]) / gcd_val
 	}
 	return lcm
+}
+
+func gcd_array_iter(arr []int) int {
+	result := 0
+
+	for i := 0; i < len(arr); i++ {
+		result = gcd(arr[i], result)
+		if result == 1 {
+			return 1
+		}
+	}
+
+	return result
+}
+
+func gcd_array_recursive(arr []){
+
+	
 }
