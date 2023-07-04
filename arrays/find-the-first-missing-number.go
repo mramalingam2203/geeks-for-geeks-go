@@ -6,15 +6,14 @@ import "fmt"
 
 func main() {
 
-	array := []int{0, 1, 2, 6, 9}
-	n := 5
-	m := 10
+	array := []int{0, 1, 2, 3, 4, 5, 6, 7, 10}
+	m := 11
 
-	findFirstMissingNumber(array, n, m)
+	fmt.Println(findFirstMissingNumber(array, m))
 
 }
 
-func findFirstMissingNumber(arr []int, n int, m int) int {
+func findFirstMissingNumber(arr []int, m int) int {
 	for i := 0; i < m-1; i++ {
 		if binarySearch(arr, i) == -1 {
 			return i
@@ -25,7 +24,7 @@ func findFirstMissingNumber(arr []int, n int, m int) int {
 
 }
 
-func binarySearch_iter(arr []int, target int) int {
+func binarySearch(arr []int, target int) int {
 	low := 0
 	high := len(arr) - 1
 
