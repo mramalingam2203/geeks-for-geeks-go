@@ -85,5 +85,20 @@ func gcdOfArray(arr []int) int {
 }
 
 
-func SteinsAlgorithm(arr []int) int {
+func SteinsAlgorithm( a int, b int)) int {
+	if a == 0 {
+		return b
+	}
+	if b == 0 {
+		return a
+	}
 	
+	if a%2 == 0 && b%2 == 0 {
+
+	}
+
+	return 0
+
+}
+
+
