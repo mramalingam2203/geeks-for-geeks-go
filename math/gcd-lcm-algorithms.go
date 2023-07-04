@@ -12,7 +12,7 @@ func main() {
 	fmt.Println(lcm_of_array_elements(a))
 	fmt.Println(Euclidean(a))
 	fmt.Println(getGCD(12, 36))
-	fmt.Println(gcdOfArray(a))
+	//fmt.Println(gcdOfArray(a))
 }
 
 func gcd(a, b int) int {
@@ -83,3 +83,7 @@ func gcdOfArray(arr []int) int {
 	}
 	return gcd
 }
+
+
+func SteinsAlgorithm(arr []int) int {
+	
