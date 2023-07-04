@@ -13,7 +13,6 @@ func main() {
 func rotateArray(array []int, d int) {
 	n := len(array)
 	block_1 := make([]int, d)
-
 	block_2 := make([]int, n-d)
 
 	for i := 0; i <= d-1; i++ {
@@ -21,11 +20,23 @@ func rotateArray(array []int, d int) {
 	}
 
 	for i := 0; i < n-d; i++ {
-		fmt.Print(i, " ")
 		block_2[i] = array[n-(i+1)]
 	}
 
-	//fmt.Println(block_1)
-	fmt.Println(block_1)
+	result := append(block_1, block_2...)
 
+	//fmt.Println(block_1)
+	reverseSlice(result)
+	fmt.Println(result)
+
+}
+
+func reverseSlice(slice []int) {
+	// Get the length of the slice
+	length := len(slice)
+
+	// Swap elements from the beginning and end of the slice until the middle is reached
+	for i := 0; i < length/2; i++ {
+		slice[i], slice[length-1-i] = slice[length-1-i], slice[i]
+	}
 }
