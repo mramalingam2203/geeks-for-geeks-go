@@ -10,6 +10,7 @@ func main() {
 	fmt.Println(lcm_of_array_elements(a))
 	fmt.Println(Euclidean(a))
 	fmt.Println(gcd_array_1(a))
+	fmt.Println(getGCD(12, 36))
 }
 
 func gcd(a, b int) int {
@@ -53,7 +54,20 @@ func gcd_array_iter(arr []int) int {
 	return result
 }
 
-func gcd_array_recursive(arr []){
+// iterative implementation
+func getGCD(a, b int) int {
+	for {
+		if a > 0 && b > 0 {
+			if a > b {
+				a = a % b
+			} else {
+				b = b % a
+			}
+		}
+		if a == 0 {
+			return b
+		}
+	}
+	return a
 
-	
 }
