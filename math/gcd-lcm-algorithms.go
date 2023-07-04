@@ -5,11 +5,14 @@ package main
 import "fmt"
 
 func main() {
-	a := []int{2, 4, 6, 8, 16}
+	//a := []int{2, 4, 6, 8, 16}
+	a := []int{1, 2, 3}
+
 	fmt.Println(gcd(23, 2))
 	fmt.Println(lcm_of_array_elements(a))
 	fmt.Println(Euclidean(a))
 	fmt.Println(getGCD(12, 36))
+	fmt.Println(gcdOfArray(a))
 }
 
 func gcd(a, b int) int {
@@ -71,4 +74,12 @@ func getGCD(a, b int) int {
 		return b
 	}
 	return a
+}
+
+func gcdOfArray(arr []int) int {
+	gcd := 2
+	for i := range arr {
+		gcd = getGCD(gcd, arr[i])
+	}
+	return gcd
 }
