@@ -12,6 +12,7 @@ func main() {
 	fmt.Println(lcm_of_array_elements(a))
 	fmt.Println(Euclidean(a))
 	fmt.Println(getGCD(12, 36))
+	fmt.Println(lcm_gcd_distributive(2, 3, 9))
 	//fmt.Println(gcdOfArray(a))
 }
 
@@ -20,6 +21,10 @@ func gcd(a, b int) int {
 		return a
 	}
 	return gcd(b, a%b)
+}
+
+func lcm(a, b int) int {
+	return (a * b) / gcd(a, b)
 }
 
 func lcm_of_array_elements(arr []int) uint64 {
@@ -84,21 +89,19 @@ func gcdOfArray(arr []int) int {
 	return gcd
 }
 
-
-func SteinsAlgorithm( a int, b int)) int {
+func SteinsAlgorithm(a int, b int) int {
 	if a == 0 {
 		return b
 	}
 	if b == 0 {
 		return a
 	}
-	
-	if a%2 == 0 && b%2 == 0 {
-
-	}
 
 	return 0
-
 }
 
+// Given three integers x, y, z, the task is to compute the value of GCD(LCM(x,y), LCM(x,z)).
 
+func lcm_gcd_distributive(x, y, z int) int {
+	return gcd(lcm(x, y), lcm(x, z))
+}
