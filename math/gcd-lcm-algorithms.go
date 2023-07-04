@@ -5,7 +5,7 @@ package main
 import "fmt"
 
 func main() {
-	a := []int{1, 2, 3, 4, 9, 10, 12, 15}
+	a := []int{250, 780, 390, 427, 963}
 	fmt.Println(gcd(23, 2))
 	fmt.Println(lcm_of_array_elements(a))
 }
@@ -24,4 +24,16 @@ func lcm_of_array_elements(arr []int) uint64 {
 	}
 
 	return result
+}
+
+func Euclidean(arr []int) int {
+	lcm := arr[0]
+	var num1, num2, gcd_val int
+	for i := range arr {
+		num1 = lcm
+		num2 = arr[i]
+		gcd_val = gcd(num1, num2)
+		lcm = (lcm * arr[i]) / gcd_val
+	}
+	return lcm
 }
