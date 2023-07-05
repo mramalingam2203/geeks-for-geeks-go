@@ -5,6 +5,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"sort"
 )
 
 func main() {
@@ -95,11 +96,12 @@ func filterSlice(slice, filter []int) []int {
 	return filteredSlice
 }
 
-func segmented_sieve(low, high int) {
+func segmented_sieve(low, high int) []int {
 	arr_1 := sundaram(low)
 	arr_2 := sundaram(high)
 	result := filterSlice(arr_2, arr_1)
 	fmt.Println(result)
+	return result
 
 }
 
@@ -110,7 +112,8 @@ func longestSubArrayOfPrime(arr []int) []int {
 	sort.Ints(temp)
 	low := temp[0]
 	high := temp[len(arr)-1]
-	primes_array := sundaram(low, high)
+	fmt.Println(low, high)
+	primes_array := segmented_sieve(low, high)
 	fmt.Println(primes_array)
 
 }
