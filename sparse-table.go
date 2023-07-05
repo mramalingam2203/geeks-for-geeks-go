@@ -13,16 +13,13 @@ func main() {
 }
 
 func range_minimum_query(array []int, queries [][]int) {
+	min := 0
 	for i := range queries {
-		for j := queries[i][0]; j <= queries[i][1]; j++ {
-			
-			temp := array[j]
-			
-			if array[j+1] > max {
-			
-
+		for j := queries[i][0]; j < queries[i][1]; j++ {
+			if array[j] < array[j+1] {
+				min = array[j]
+			}
 		}
-		fmt.Println()
+		fmt.Println(min)
 	}
-
 }
