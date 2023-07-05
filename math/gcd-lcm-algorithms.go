@@ -2,7 +2,10 @@
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 func main() {
 	//a := []int{2, 4, 6, 8, 16}
@@ -13,6 +16,7 @@ func main() {
 	fmt.Println(Euclidean(a))
 	fmt.Println(getGCD(12, 36))
 	fmt.Println(lcm_gcd_distributive(2, 3, 9))
+	fmt.Println(gcd_fp(3.0, 4.5))
 	//fmt.Println(gcdOfArray(a))
 }
 
@@ -104,4 +108,16 @@ func SteinsAlgorithm(a int, b int) int {
 
 func lcm_gcd_distributive(x, y, z int) int {
 	return gcd(lcm(x, y), lcm(x, z))
+}
+
+func gcd_fp(a, b float64) float64 {
+	if a < b {
+		return gcd_fp(b, a)
+	}
+	if math.Abs(b) < 1e-3 {
+		return a
+	} else {
+		return gcd_fp(b, a-math.Floor(a/b)*b)
+	}
+
 }
