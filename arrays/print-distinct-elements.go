@@ -6,11 +6,13 @@ package main
 
 import (
 	"fmt"
+	"sort"
 )
 
 func main() {
 	array := []int{1, 2, 3, 4, 4, 3, 5, 2, 2, 1, 2, 3, 4, 5}
-	distinct_elements(array)
+	//distinct_elements(array)
+	distinct_elements_by_sort(array)
 
 }
 
@@ -34,11 +36,14 @@ func distinct_elements_by_sort(arr []int) {
 	sort.Ints(arr)
 	var i int
 	for i = range arr {
-		for{
-			if i < n-1 && arr[i] == arr[i+1]{
+		for {
+			if i < len(arr)-1 && arr[i] == arr[i+1] {
 				i++
+				break
 			}
 			fmt.Print(arr[i], " ")
-		}		
+			break
+		}
 
+	}
 }
