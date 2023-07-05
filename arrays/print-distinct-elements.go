@@ -15,5 +15,17 @@ func main() {
 }
 
 func distinct_elements(arr []int) {
+	var i, j int
+	for i = 0; i < len(arr); i++ {
+		for j = 0; j < i; j++ {
+			if arr[i] == arr[j] {
+				break
+			}
+		}
+		if i == j {
+			fmt.Print(arr[i], " ")
+		}
+
+	}
 
 }
