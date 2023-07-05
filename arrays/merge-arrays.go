@@ -14,5 +14,12 @@ func main() {
 
 func merge_sorted(arr1, arr2 []int) {
 	merged := make([]int, len(arr1)+len(arr2))
+	for i := 0; i < len(arr1); i++ {
+		merged[i] = arr1[i]
+	}
+	for i := len(arr1); i < len(arr2); i++ {
+		merged[i] = arr2[i]
+	}
+	fmt.Println(merged)
 
 }
