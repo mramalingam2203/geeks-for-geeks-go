@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	array := []int{10, 5, 6, 3, 2, 20, 100, 80}
+	array := []int{10, 90, 49, 2, 1, 5, 23}
 	wave_sort(array)
 }
 
@@ -22,14 +22,11 @@ func main() {
 func wave_sort(a []int) {
 	var tmp int
 	sort.Ints(a)
-	for i := range a {
+	for i := 0; i < len(a)-1; i += 2 {
 		tmp = a[i]
 		a[i] = a[i+1]
 		a[i+1] = tmp
 	}
 	fmt.Print(a)
-
-}
-
 
 }
