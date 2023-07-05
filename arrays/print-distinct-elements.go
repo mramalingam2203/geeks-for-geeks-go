@@ -29,3 +29,16 @@ func distinct_elements(arr []int) {
 	}
 
 }
+
+func distinct_elements_by_sort(arr []int) {
+	sort.Ints(arr)
+	var i int
+	for i = range arr {
+		for{
+			if i < n-1 && arr[i] == arr[i+1]{
+				i++
+			}
+			fmt.Print(arr[i], " ")
+		}		
+
+}
