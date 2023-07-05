@@ -73,8 +73,29 @@ func sundaram(n int) []int {
 	return result
 }
 
+func filterSlice(slice, filter []int) []int {
+	filteredSlice := make([]int, 0)
+	filterSet := make(map[int]bool)
+
+	// Create a set of filter values for efficient lookup
+	for _, val := range filter {
+		filterSet[val] = true
+	}
+
+	// Iterate over the original slice and add elements to the filtered slice if they are in the filter set
+	for _, val := range slice {
+		if !filterSet[val] {
+			filteredSlice = append(filteredSlice, val)
+		}
+	}
+
+	return filteredSlice
+}
+
 func segmented_sieve(low, high int) {
 	arr_1 := sundaram(low)
 	arr_2 := sundaram(high)
+	result := filterSlice(arr_2, arr_1)
+	fmt.Println(result)
 
 }
