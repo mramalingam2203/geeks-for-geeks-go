@@ -11,6 +11,9 @@ func main() {
 	fmt.Println(naive(31))
 	fmt.Println(efficient(20))
 	segmented_sieve(23, 93)
+
+	array := []int{3, 5, 2, 66, 7, 11, 8}
+	longestSubArrayOfPrime(array)
 }
 
 func naive(n int) bool {
@@ -97,5 +100,17 @@ func segmented_sieve(low, high int) {
 	arr_2 := sundaram(high)
 	result := filterSlice(arr_2, arr_1)
 	fmt.Println(result)
+
+}
+
+// https://www.geeksforgeeks.org/longest-sub-array-of-prime-numbers-using-segmented-sieve/
+
+func longestSubArrayOfPrime(arr []int) []int {
+	temp := arr
+	sort.Ints(temp)
+	low := temp[0]
+	high := temp[len(arr)-1]
+	primes_array := sundaram(low, high)
+	fmt.Println(primes_array)
 
 }
