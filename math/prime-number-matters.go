@@ -4,11 +4,12 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 func main() {
-	fmt.Println(naive(32))
-	fmt.Println(efficient(32))
+	fmt.Println(naive(31))
+	fmt.Println(efficient(20))
 
 }
 
@@ -27,17 +28,18 @@ func naive(n int) bool {
 }
 
 // is prime or not
-func efficient(int n) {
+func efficient(n int) bool {
 	// Corner case
 	if n <= 1 {
 		return false
 	}
 
 	// Check from 2 to square root of n
-	for i := 2; i <= int(Math.sqrt(float64(n))); i++ {
+	for i := 2; i <= int(math.Sqrt(float64(n))); i++ {
 		if n%i == 0 {
 			return false
 		}
-		return true
 	}
+	return true
+
 }
