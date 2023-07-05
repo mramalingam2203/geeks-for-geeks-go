@@ -10,8 +10,7 @@ import (
 func main() {
 	fmt.Println(naive(31))
 	fmt.Println(efficient(20))
-	sundaram(203)
-
+	segmented_sieve(23, 93)
 }
 
 func naive(n int) bool {
@@ -45,7 +44,7 @@ func efficient(n int) bool {
 
 }
 
-func sundaram(n int) {
+func sundaram(n int) []int {
 	// Since we want primes smaller than n, we reduce n to half
 	nNew := (n - 1) / 2
 
@@ -61,16 +60,21 @@ func sundaram(n int) {
 		}
 	}
 
-	// Since 2 is a prime number
-	if n > 2 {
-		fmt.Print("2", " ")
-	}
+	result := []int{2}
 
 	// Print other primes. Remaining primes are of the form
 	// 2*i + 1 such that marked[i] is false.
 	for i := 1; i <= nNew; i++ {
 		if marked[i] == false {
-			fmt.Print(2*i+1, " ")
+			result = append(result, 2*i+1)
 		}
 	}
+
+	return result
+}
+
+func segmented_sieve(low, high int) {
+	arr_1 := sundaram(low)
+	arr_2 := sundaram(high)
+
 }
