@@ -12,11 +12,12 @@ func main() {
 }
 
 func peakElement(a []int) int {
+	result := make([]int, 0)
 	for i := 1; i < len(a)-1; i++ {
 		if a[i] > a[i-1] && a[i] > a[i+1] {
-			return a[i]
+			result = append(result, a[i]
 		}
 	}
-	return -1
+	return result
 
 }
