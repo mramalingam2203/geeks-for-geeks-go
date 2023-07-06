@@ -21,6 +21,7 @@ func main() {
 		{13, 14, 15, 16}}
 
 	rotateMatrixByNinetyDegrees(array2)
+	sortMatrix(array2)
 
 }
 
@@ -123,12 +124,20 @@ func rotateMatrixByNinetyDegrees(matrix [][]int) {
 }
 
 func sortMatrix(matrix [][]int) {
-	matrix_1D = make([]int, len(matrix)*len(matrix[0]))
-	sort.Ints(matrix_1D)
-	for i := 0; i < rows; i++ {
-		for j := 0; j < cols; j++ {
-			matrix[i][j] = mat[i]
-		}
+	rows := len(matrix)
+	cols := len(matrix[0])
+
+	matrix_1D := make([]int, rows*cols)
+	for i := 0; i < rows*cols; i++ {
+		matrix_1D[i] = matrix[i/rows]
 	}
 
+	sort.Ints(matrix_1D)
+
+	for i := 0; i < rows; i++ {
+		for j := 0; j < cols; j++ {
+			matrix[i][j] = matrix_1D[i/rows]
+		}
+	}
+	fmt.Println(matrix)
 }
