@@ -128,16 +128,17 @@ func sortMatrix(matrix [][]int) {
 	cols := len(matrix[0])
 
 	matrix_1D := make([]int, rows*cols)
-	for i := 0; i < rows*cols; i++ {
-		matrix_1D[i] = matrix[i/rows]
+
+	for _, row := range matrix {
+		matrix_1D = append(matrix_1D, row...)
 	}
 
 	sort.Ints(matrix_1D)
+	fmt.Print(matrix_1D)
 
 	for i := 0; i < rows; i++ {
 		for j := 0; j < cols; j++ {
 			matrix[i][j] = matrix_1D[i/rows]
 		}
 	}
-	fmt.Println(matrix)
 }
