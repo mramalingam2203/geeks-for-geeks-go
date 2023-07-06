@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 func main() {
 
@@ -116,5 +119,16 @@ func rotateMatrixByNinetyDegrees(matrix [][]int) {
 
 	fmt.Println()
 	fmt.Print(matrix)
+
+}
+
+func sortMatrix(matrix [][]int) {
+	matrix_1D = make([]int, len(matrix)*len(matrix[0]))
+	sort.Ints(matrix_1D)
+	for i := 0; i < rows; i++ {
+		for j := 0; j < cols; j++ {
+			matrix[i][j] = mat[i]
+		}
+	}
 
 }
