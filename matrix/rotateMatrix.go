@@ -59,4 +59,22 @@ func reverseColumns(arr [][]int) [][]int {
 
 func findUniqueElements(mat [][]int) []int {
 
+	rows := len(mat)
+	cols := len(mat[1])
+
+	// find maximum number in matrix
+	maximum := 0
+	flag : = 0;
+    for i := 0; i < rows; i++{
+        for j := 0; j < cols; j++{
+            if (maximum < mat[i][j]){
+				maximum = mat[i][j]
+			}
+		}
+	} 
+	// Take 1-D array of (maximum + 1) size
+    int b :=  make([]int, maximum + 1,{ 0 })
+
+	}
+                
 }
