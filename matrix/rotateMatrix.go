@@ -4,7 +4,9 @@ import "fmt"
 
 func main() {
 	matrix := [][]int{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}}
-	//matrix = transposematrix(matrix)
+	matrix = transposematrix(matrix)
+	matrix = reverseColumns(matrix)
+	matrix = transposematrix(matrix)
 	matrix = reverseColumns(matrix)
 
 }
@@ -48,7 +50,7 @@ func reverseColumns(arr [][]int) [][]int {
 
 	for j := 0; j < cols; j++ {
 		for i := 0; i < rows; i++ {
-			reversed[i][j] = arr[rows-i-1][j]
+			reversed[i][j] = arr[i][cols-j-1]
 		}
 	}
 	fmt.Println(reversed)
