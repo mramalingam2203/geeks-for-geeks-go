@@ -1,8 +1,11 @@
 package main
 
+import "fmt"
+
 func main() {
 	matrix := [][]int{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}}
-	matrix = transposematrix(matrix)
+	//matrix = transposematrix(matrix)
+	matrix = reverseColumns(matrix)
 
 }
 
@@ -27,17 +30,27 @@ func transposematrix(mat [][]int) [][]int {
 
 }
 
-func reverseColumns(mat [][]int) [][]int {
-	cols := len(mat[1])
-	for j := 0; j < cols; j++ {
-		for i := 0; i < rows; i++ {
-			mat[j][i] = mat[j][cols-i]
-		}
+func reverseColumns(arr [][]int) [][]int {
+	rows := len(arr)
+	if rows == 0 {
+		return arr
 	}
 
-	fmt.Println (mat)
-}
+	cols := len(arr[0])
+	if cols == 0 {
+		return arr
+	}
 
+	reversed := make([][]int, rows)
+	for i := 0; i < rows; i++ {
+		reversed[i] = make([]int, cols)
+	}
 
-
+	for j := 0; j < cols; j++ {
+		for i := 0; i < rows; i++ {
+			reversed[i][j] = arr[rows-i-1][j]
+		}
+	}
+	fmt.Println(reversed)
+	return reversed
 }
