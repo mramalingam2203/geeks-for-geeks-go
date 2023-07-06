@@ -56,3 +56,7 @@ func reverseColumns(arr [][]int) [][]int {
 	fmt.Println(reversed)
 	return reversed
 }
+
+func findUniqueElements(mat [][]int) []int {
+
+}
