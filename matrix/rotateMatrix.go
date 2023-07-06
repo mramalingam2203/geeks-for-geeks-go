@@ -28,5 +28,16 @@ func transposematrix(mat [][]int) [][]int {
 }
 
 func reverseColumns(mat [][]int) [][]int {
+	cols := len(mat[1])
+	for j := 0; j < cols; j++ {
+		for i := 0; i < rows; i++ {
+			mat[j][i] = mat[j][cols-i]
+		}
+	}
+
+	fmt.Println (mat)
+}
+
+
 
 }
