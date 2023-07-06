@@ -4,13 +4,20 @@ import "fmt"
 
 func main() {
 
-	array := [][]int{{1, 2, 3, 20},
+	array1 := [][]int{{1, 2, 3, 20},
 		{5, 6, 20, 25},
 		{1, 3, 5, 6},
 		{6, 7, 8, 15}}
 
-	rotateMatrix(array)
-	findUniqueElements(array)
+	rotateMatrix(array1)
+	findUniqueElements(array1)
+
+	array2 := [][]int{{1, 2, 3, 4},
+		{5, 6, 7, 8},
+		{9, 10, 11, 12},
+		{13, 14, 15, 16}}
+
+	rotateMatrixByNinetyDegrees(array2)
 
 }
 
@@ -104,8 +111,10 @@ func findUniqueElements(mat [][]int) []int {
 }
 
 func rotateMatrixByNinetyDegrees(matrix [][]int) {
-	reverseColumns(matrix)
-	transposematrix(matrix)
+	matrix = reverseColumns(matrix)
+	matrix = transposematrix(matrix)
+
+	fmt.Println()
 	fmt.Print(matrix)
 
 }
