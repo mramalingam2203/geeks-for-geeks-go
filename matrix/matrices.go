@@ -102,3 +102,10 @@ func findUniqueElements(mat [][]int) []int {
 	return b
 
 }
+
+func rotateMatrixByNinetyDegrees(matrix [][]int) {
+	reverseColumns(matrix)
+	transposematrix(matrix)
+	fmt.Print(matrix)
+
+}
