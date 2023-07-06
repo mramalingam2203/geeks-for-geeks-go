@@ -10,11 +10,14 @@ func main() {
 }
 
 func transposematrix(mat [][]int) {
-	//trans := [][]int{{}}
-	for i := 0; i < len(mat[i]); i++ {
+	result := make([]int, 0, len(mat)*len(mat))
+
+	for i := 0; i < len(mat); i++ {
 		fmt.Println()
-		for j := 0; j < len(mat[i]); j++ {
-			fmt.Print(mat[i][j], " ")
+		for j := 0; j < len(mat); j++ {
+			result = append(result, mat[i][j])
 		}
 	}
+
+	fmt.Println(result)
 }
