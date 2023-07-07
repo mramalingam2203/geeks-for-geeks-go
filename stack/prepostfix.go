@@ -7,22 +7,18 @@ import (
 )
 
 func main() {
-	fmt.Println(precedence('/'))
+	fmt.Println(precedence('^'))
 }
 
 func precedence(char rune) int {
-	switch operator := '+'; operator {
-	case '+':
-	case '-':
+	switch {
+	case char == '+' || char == '-':
 		return 1
-	case '*':
-	case '/':
+	case char == '*' || char == '/':
 		return 2
-	case '^':
+	case char == '^':
 		return 3
-	default:
-		return -1
 	}
+	return -1
 
-	return 0
 }
