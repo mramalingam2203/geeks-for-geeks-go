@@ -31,6 +31,12 @@ func (stack *Stack) IsEmpty() bool {
 	return stack.top == -1
 }
 
+// Returns the size of the size
+func (stack *Stack) Size() uint {
+	return uint(stack.top + 1)
+}
+
+
 func main() {
 
 }
