@@ -11,8 +11,6 @@ const MAX_SIZE int = 100
 
 var queue = make([]int, MAX_SIZE)
 
-//var queue [100]int
-
 var front, rear int = -1, -1
 
 func enQueue(element int) {
@@ -57,11 +55,18 @@ func display() {
 	}
 }
 
+func countElements(rear, front int) int {
+	return rear - front + 1
+}
+
 func main() {
 	enQueue(10)
 	enQueue(20)
 	enQueue(30)
-	display()
+	fmt.Println(front, rear)
+	fmt.Println(countElements(rear, front))
+
+	//display()
 
 	deQueue()
 	display()
