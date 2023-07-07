@@ -33,7 +33,7 @@ func enQueue( ){
 	}
 }
 
-int isEmpty() {
+func isEmpty() {
     if (front == -1 || front > rear) {
         return 1;
     } else {
@@ -41,19 +41,19 @@ int isEmpty() {
     }
 }
 
-void display() {
+func  display() {
     if (isEmpty()) {
-        printf("Queue is empty.\n");
+        fmt.Println("Queue is empty.\n");
     } else {
-        printf("Queue elements: ");
+        printf("Queue elements: ")
         for (int i = front; i <= rear; i++) {
-            printf("%d ", queue[i]);
+            fmt.Println("%d ", queue[i])
         }
-        printf("\n");
+        fmt.Println( )
     }
 }
 
-int main() {
+func main() {
     enqueue(10);
     enqueue(20);
     enqueue(30);
@@ -66,5 +66,4 @@ int main() {
     dequeue();
     display();
 
-    return 0;
 }
