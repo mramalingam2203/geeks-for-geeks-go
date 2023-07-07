@@ -55,7 +55,7 @@ func display() {
 	}
 }
 
-func countElements(rear, front int) int {
+func countElements() int {
 	return rear - front + 1
 }
 
@@ -63,16 +63,22 @@ func main() {
 	enQueue(10)
 	enQueue(20)
 	enQueue(30)
-	fmt.Println(front, rear)
-	fmt.Println(countElements(rear, front))
+	enQueue(40)
+	enQueue(50)
+	enQueue(60)
+	fmt.Println()
+	fmt.Println(countElements())
 
 	//display()
 
 	deQueue()
+	deQueue()
+	fmt.Println(countElements())
 	display()
 
 	deQueue()
 	deQueue()
+	fmt.Println(countElements())
 	display()
 
 }
