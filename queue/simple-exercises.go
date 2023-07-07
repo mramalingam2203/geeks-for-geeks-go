@@ -11,26 +11,26 @@ int queue[MAX_SIZE];
 int front = -1;
 int rear = -1;
 
-void enqueue(int element) {
-    if (rear == MAX_SIZE - 1) {
-        printf("Queue is full. Cannot enqueue.\n");
-    } else {
-        if (front == -1) {
-            front = 0;
-        }
-        rear++;
-        queue[rear] = element;
-        printf("%d enqueued successfully.\n", element);
-    }
+func enQueue(element int){
+	if rear == MAX_SIZE -1 {
+		fmt.Println("queue is full. cannot enqueue")
+	}else{
+		if front == -1 {
+			front = 0
+		}
+		rear ++
+		queue[rear] = element
+		fmt.Println("enqueued successfully")
+	}
 }
 
-void dequeue() {
-    if (front == -1 || front > rear) {
-        printf("Queue is empty. Cannot dequeue.\n");
-    } else {
-        printf("%d dequeued successfully.\n", queue[front]);
-        front++;
-    }
+func enQueue( ){
+	if front == -1 || front > rear{
+		fmt.Println("queue is empty. cannot enqueue"
+	}else{
+		fmt.Println("%d enqueued", queue[front])
+		front++
+	}
 }
 
 int isEmpty() {
