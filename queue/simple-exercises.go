@@ -32,7 +32,7 @@ func deQueue() {
 	if front == -1 || front > rear {
 		fmt.Println("queue is empty. cannot enqueue")
 	} else {
-		fmt.Println("%d enqueued", queue[front])
+		fmt.Println("enqueued", queue[front])
 		front++
 	}
 }
@@ -49,9 +49,9 @@ func display() {
 	if isEmpty() == true {
 		fmt.Println("Queue is empty.\n")
 	} else {
-		printf("Queue elements: ")
+		fmt.Println("Queue elements: ")
 		for i := front; i <= rear; i++ {
-			fmt.Println("%d ", queue[i])
+			fmt.Println(queue[i])
 		}
 		fmt.Println()
 	}
@@ -63,11 +63,11 @@ func main() {
 	enQueue(30)
 	display()
 
-	dequeue()
+	deQueue()
 	display()
 
-	dequeue()
-	dequeue()
+	deQueue()
+	deQueue()
 	display()
 
 }
