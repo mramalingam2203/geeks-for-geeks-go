@@ -2,14 +2,18 @@
 // Write a golnag code m to implement a queue using an array. Programs should contain functions for inserting elements into the queue, displaying queue elements, and checking whether the queue is empty or not
 // queue using an array
 
+package main
 
-#include <stdio.h>
+import(
+	"fmt"
+)
 
-#define MAX_SIZE 100
 
-int queue[MAX_SIZE];
-int front = -1;
-int rear = -1;
+MAX_SIZE const int = 100
+
+queue = [MAX_SIZE]int
+front := -1
+rear := -1
 
 func enQueue(element int){
 	if rear == MAX_SIZE -1 {
@@ -54,16 +58,16 @@ func  display() {
 }
 
 func main() {
-    enqueue(10);
-    enqueue(20);
-    enqueue(30);
-    display();
+    enqueue(10)
+    enqueue(20)
+    enqueue(30)
+    display()
     
-    dequeue();
-    display();
+    dequeue()
+    display()
     
-    dequeue();
-    dequeue();
-    display();
+    dequeue()
+    dequeue()
+    display()
 
 }
