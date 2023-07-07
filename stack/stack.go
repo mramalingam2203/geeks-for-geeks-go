@@ -3,9 +3,9 @@
 package main
 
 type Stack struct {
-	top int 
+	top      int
 	capacity uint
-	array []interface
+	array    []interface{}
 }
 
 // Returns an initialized stack
@@ -19,4 +19,18 @@ func (stack *Stack) Init(capacity uint) *Stack {
 // Returns a new stack
 func NewStack(capacity uint) *Stack {
 	return new(Stack).Init(capacity)
+}
+
+// Stack is full when top is equal to the last index
+func (stack *Stack) IsFull() bool {
+	return stack.top == int(stack.capacity)-1
+}
+
+// Stack is empty when top is equal to -1
+func (stack *Stack) IsEmpty() bool {
+	return stack.top == -1
+}
+
+func main() {
+
 }
