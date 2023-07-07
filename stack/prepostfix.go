@@ -8,6 +8,7 @@ import (
 
 func main() {
 	fmt.Println(precedence('^'))
+	fmt.Println(isOperator('*'))
 }
 
 func precedence(char rune) int {
@@ -21,4 +22,11 @@ func precedence(char rune) int {
 	}
 	return -1
 
+}
+
+// Function to check if the scanned character
+// is an operator
+func isOperator(char rune) bool {
+
+	return char == '+' || char == '-' || char == '*' || char == '/' || char == '^'
 }
