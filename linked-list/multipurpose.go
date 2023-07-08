@@ -164,9 +164,23 @@ func (ll *LinkedList) length2() int {
 }
 
 func main() {
-	demo()
+	//demo()
+
+	ll := LinkedList{}
+
+	ll.insertAtBeginning("A")
+	ll.insertAtBeginning("B")
+	ll.insertAtEnd("C")
+	ll.insert(2, "D")
+	ll.insertAtEnd("E")
+	ll.insertAtEnd("F")
+	ll.insertAtEnd("G")
+	ll.insertAtEnd("H")
+
+	ll.findMiddleElement()
 
 }
+
 func demo() {
 	fmt.Println("Demoing the capabilites")
 	ll := LinkedList{}
@@ -242,5 +256,20 @@ func demo() {
 	}
 
 	fmt.Printf("length: %d\n", ll.length())
+
+}
+
+func (ll *LinkedList) findMiddleElement() {
+	i := 0
+	current := ll.head
+	fmt.Println(ll.display())
+	for {
+		if i == ll.length()/2 {
+			fmt.Println(current.data)
+			break
+		}
+		current = current.next
+		i++
+	}
 
 }
