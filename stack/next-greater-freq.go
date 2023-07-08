@@ -86,14 +86,14 @@ func maxArray(array []int) int {
 }
 
 // next greater frequency function
-func NFG(array []int) {
+func NFG(a []int) {
 
-	max := maxArray(array)
+	max := maxArray(a)
 	freq := make([]int, max+1)
 
 	// Calculating frequency of each element
-	for i := 0; i < len(array); i++ {
-		freq[array[i]]++
+	for i := 0; i < len(a); i++ {
+		freq[a[i]]++
 	}
 
 	fmt.Println(freq)
@@ -101,8 +101,10 @@ func NFG(array []int) {
 	stack := NewStack(100)
 	stack.Push(0)
 
-	for i := 1; i < len(array); i++ {
-
+	for i := 1; i < len(a); i++ {
+		if freq[a[stack.top]] > freq[a[i]] {
+			stack.Push(i)
+		}
 	}
 
 }
