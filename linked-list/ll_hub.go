@@ -154,3 +154,27 @@ func isCircularLL(ll LinkedList) bool {
 	return false
 
 }
+
+// https://www.geeksforgeeks.org/data-structures/linked-list/singly-linked-list/?ref=ghm
+
+func findEqual(ll1 LinkedList, ll2 LinkedList) bool {
+
+	if ll1.head == nil || ll2.head == nil {
+		return false
+	}
+
+	current_1 := ll1.head
+	current_2 := ll2.head
+
+	for current_1 != nil && current_2 == nil {
+		if current_1.data == current_1.data {
+			current_1 = current_1.next
+			current_2 = current_2.next
+		} else {
+			return false
+		}
+
+	}
+
+	return true
+}
