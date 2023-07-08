@@ -74,18 +74,27 @@ func (stack *Stack) Drain() {
 
 // Stack definitions over
 
+func max(array []int) int {
+	max := 0
+	for i:= 0; i < len(array) ; i++{
+		if array[i] > max{
+			max = array[i]
+		}
+	}
+	return max
+}
+
+
 // next greater frequency function
 func NFG(array int[]){
 	int max = INT16_MIN
-    
 	for i := 0; i < len; i++{
         // Getting the max element of the array
         if a[i] > max {
             max = a[i]   }
     }
-
-    int freq[max + 1] = { 0 };
- 
+	freq := make([]int, max+1)
+	
     // Calculating frequency of each element
     for (int i = 0; i < len; i++)
     {
