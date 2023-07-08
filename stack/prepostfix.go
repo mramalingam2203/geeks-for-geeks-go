@@ -4,6 +4,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
 func main() {
@@ -22,6 +23,17 @@ func precedence(char rune) int {
 	}
 	return -1
 
+}
+
+func infixToPostfix(infix string) (string, error) {
+	length = len(infix)
+	infixArray := strings.Fields(infix)
+	var postfix string
+
+	for i:=0; i  <length; i++ {
+		if infixArray[i] == ' ' || infixArray[i] = '\t'{
+			continue
+		}
 }
 
 // Function to check if the scanned character
