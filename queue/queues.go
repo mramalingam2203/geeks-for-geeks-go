@@ -1,4 +1,5 @@
 // queue general definitions
+
 package main
 import (
     "bytes"
@@ -7,6 +8,7 @@ import (
 
 const MaxInt = int( ^ uint(0) >> 1)
 const MinInt = -MaxInt - 1
+
 type Queue struct {
     // enQueue increments rear then writes to array[rear] ; enQueue writes to array[front] then
     // decrements front; len(array) is a power of two; unused slots are nil and not garbage.
@@ -49,8 +51,8 @@ func(q * Queue) isFull() bool {
 func(q * Queue) String() string {
     var result bytes.Buffer
     result.WriteByte('[')
-    j: = q.front
-    for i: = 0;
+    j:= q.front
+    for i:= 0;
     i < q.size;
     i++{
         result.WriteString(fmt.Sprintf("%v", q.array[j]))
