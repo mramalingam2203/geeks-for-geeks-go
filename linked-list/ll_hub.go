@@ -23,11 +23,12 @@ func main() {
 
 	//ll.findMiddleElement()
 	findGivenKey(ll, 3)
+
 	l2 := LinkedList{}
 
 	l2.insertAtBeginning(1)
 	l2.insertAtBeginning(2)
-	l2.insertAtEnd(3)
+	l2.insertAtEnd()
 	l2.insert(2, 4)
 	l2.insertAtEnd(5)
 	l2.insertAtEnd(3)
@@ -38,6 +39,8 @@ func main() {
 	l2.insertAtEnd(3)
 	l2.insertAtEnd(3)
 	l2.insert(5, 4)
+
+	fmt.Println(checkIfEqual(ll, l2))
 
 }
 
@@ -181,15 +184,32 @@ func checkIfEqual(ll1 LinkedList, ll2 LinkedList) bool {
 	current_1 := ll1.head
 	current_2 := ll2.head
 
-	for current_1 != nil && current_2 == nil {
-		if current_1.data == current_1.data {
-			current_1 = current_1.next
-			current_2 = current_2.next
-		} else {
-			return false
+	for {
+		if current_1 != nil && current_2 != nil {
+			if current_1.data == current_2.data {
+				current_1 = current_1.next
+				current_2 = current_2.next
+			} else {
+				return false
+			}
 		}
-
 	}
 
 	return true
+}
+
+// https://www.geeksforgeeks.org/write-a-function-to-get-nth-node-in-a-linked-list/
+
+func findNthNode(ll LinkedList, n int) int {
+	count := 0
+	current := ll.head
+
+	for i := 0; i < ll.length(); i++ {
+		if count == n {
+			return current.data
+		}
+		current = current.next
+	}
+
+	return -1
 }
