@@ -164,96 +164,83 @@ func (ll *LinkedList) length2() int {
 }
 
 func main() {
+	demo()
+
+}
+func demo() {
+	fmt.Println("Demoing the capabilites")
 	ll := LinkedList{}
-	/*
-		fmt.Printf("insertAtBeginning: A\n")
-		ll.insertAtBeginning("A")
-		fmt.Printf("insertAtBeginning: B\n")
-		ll.insertAtBeginning("B")
-		fmt.Printf("insertAtEnd: C\n")
-		ll.insertAtEnd("C")
-		fmt.Printf("insert: D\n")
-		ll.insert(2, "D")
-		fmt.Printf("length: %d\n", ll.length())
 
-		err := ll.display()
-		if err != nil {
-			fmt.Println(err.Error())
-		}
+	fmt.Printf("insertAtBeginning: A\n")
+	ll.insertAtBeginning("A")
+	fmt.Printf("insertAtBeginning: B\n")
+	ll.insertAtBeginning("B")
+	fmt.Printf("insertAtEnd: C\n")
+	ll.insertAtEnd("C")
+	fmt.Printf("insert: D\n")
+	ll.insert(2, "D")
+	fmt.Printf("length: %d\n", ll.length())
 
-		fmt.Printf("delete\n")
-		_, err = ll.delete(4)
-		if err != nil {
-			fmt.Printf("deleteError: %s\n", err.Error())
-		}
-		fmt.Printf("length: %d\n", ll.length())
-		err = ll.display()
-		if err != nil {
-			fmt.Println(err.Error())
-		}
+	err := ll.display()
+	if err != nil {
+		fmt.Println(err.Error())
+	}
 
-		fmt.Printf("deleteFront\n")
-		_, err = ll.deleteFront()
-		if err != nil {
-			fmt.Printf("deleteFront Error: %s\n", err.Error())
-		}
-		fmt.Printf("length: %d\n", ll.length())
-		err = ll.display()
-		if err != nil {
-			fmt.Println(err.Error())
-		}
+	fmt.Printf("delete\n")
+	_, err = ll.delete(4)
+	if err != nil {
+		fmt.Printf("deleteError: %s\n", err.Error())
+	}
+	fmt.Printf("length: %d\n", ll.length())
+	err = ll.display()
+	if err != nil {
+		fmt.Println(err.Error())
+	}
 
-		fmt.Printf("deleteLast\n")
-		_, err = ll.deleteLast()
-		if err != nil {
-			fmt.Printf("deleteLast Error: %s\n", err.Error())
-		}
-		fmt.Printf("length: %d\n", ll.length())
-		err = ll.display()
-		if err != nil {
-			fmt.Println(err.Error())
-		}
+	fmt.Printf("deleteFront\n")
+	_, err = ll.deleteFront()
+	if err != nil {
+		fmt.Printf("deleteFront Error: %s\n", err.Error())
+	}
+	fmt.Printf("length: %d\n", ll.length())
+	err = ll.display()
+	if err != nil {
+		fmt.Println(err.Error())
+	}
 
-		fmt.Printf("deleteLast\n")
-		_, err = ll.deleteLast()
-		if err != nil {
-			fmt.Printf("deleteLast Error: %s\n", err.Error())
-		}
-		fmt.Printf("length: %d\n", ll.length())
-		err = ll.display()
-		if err != nil {
-			fmt.Println(err.Error())
-		}
+	fmt.Printf("deleteLast\n")
+	_, err = ll.deleteLast()
+	if err != nil {
+		fmt.Printf("deleteLast Error: %s\n", err.Error())
+	}
+	fmt.Printf("length: %d\n", ll.length())
+	err = ll.display()
+	if err != nil {
+		fmt.Println(err.Error())
+	}
 
-		fmt.Printf("deleteLast\n")
-		_, err = ll.deleteLast()
-		if err != nil {
-			fmt.Printf("deleteLast Error: %s\n", err.Error())
-		}
-		fmt.Printf("length: %d\n", ll.length())
-		err = ll.display()
-		if err != nil {
-			fmt.Println(err.Error())
-		}
+	fmt.Printf("deleteLast\n")
+	_, err = ll.deleteLast()
+	if err != nil {
+		fmt.Printf("deleteLast Error: %s\n", err.Error())
+	}
+	fmt.Printf("length: %d\n", ll.length())
+	err = ll.display()
+	if err != nil {
+		fmt.Println(err.Error())
+	}
 
-		fmt.Printf("length: %d\n", ll.length())
-	*/
-	ll.insertAtBeginning(1)
-	ll.insertAtBeginning(2)
-	ll.insertAtBeginning(3)
-	ll.insertAtBeginning(4)
-	ll.insertAtBeginning(5)
-	ll.insertAtEnd(4)
-	ll.insertAtEnd(5)
-	ll.insertAtEnd(6)
+	fmt.Printf("deleteLast\n")
+	_, err = ll.deleteLast()
+	if err != nil {
+		fmt.Printf("deleteLast Error: %s\n", err.Error())
+	}
+	fmt.Printf("length: %d\n", ll.length())
+	err = ll.display()
+	if err != nil {
+		fmt.Println(err.Error())
+	}
 
 	fmt.Printf("length: %d\n", ll.length())
-}
 
-// find the middle element of a linked list -- brute force
-
-func findMiddleElementofLLUsingBruteForce(ll *LinkedList) {
-	for {
-
-	}
 }
