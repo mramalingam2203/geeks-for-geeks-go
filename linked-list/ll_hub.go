@@ -23,24 +23,7 @@ func main() {
 
 	//ll.findMiddleElement()
 	findGivenKey(ll, 3)
-
-	l2 := LinkedList{}
-
-	l2.insertAtBeginning(1)
-	l2.insertAtBeginning(2)
-	l2.insertAtEnd()
-	l2.insert(2, 4)
-	l2.insertAtEnd(5)
-	l2.insertAtEnd(3)
-	l2.insertAtEnd(5)
-	l2.insertAtEnd(3)
-	l2.insert(3, 5)
-	l2.insertAtEnd(3)
-	l2.insertAtEnd(3)
-	l2.insertAtEnd(3)
-	l2.insert(5, 4)
-
-	fmt.Println(checkIfEqual(ll, l2))
+	findNthNode(ll, 4)
 
 }
 
@@ -203,11 +186,13 @@ func checkIfEqual(ll1 LinkedList, ll2 LinkedList) bool {
 func findNthNode(ll LinkedList, n int) int {
 	count := 0
 	current := ll.head
+	ll.display()
 
 	for i := 0; i < ll.length(); i++ {
 		if count == n {
-			return current.data
+			fmt.Println(current.data)
 		}
+		count++
 		current = current.next
 	}
 
