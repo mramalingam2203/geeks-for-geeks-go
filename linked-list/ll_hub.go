@@ -294,3 +294,24 @@ func findGivenKey(ll LinkedList, key int) {
 	}
 	fmt.Println(count)
 }
+
+// https://www.geeksforgeeks.org/check-if-a-linked-list-is-circular-linked-list/?ref=lbp
+// check for a circular list
+
+func checkCircularLL(ll LinkedList) bool {
+
+	if ll.head == nil {
+		return false
+	}
+
+	current := ll.head
+	for current != nil {
+		current = current.next
+	}
+	if current == ll.head {
+		return true
+	}
+
+	return false
+
+}
