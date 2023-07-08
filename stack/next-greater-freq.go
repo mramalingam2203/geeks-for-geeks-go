@@ -90,6 +90,7 @@ func NFG(a []int) {
 
 	max := maxArray(a)
 	freq := make([]int, max+1)
+	res := make([]int, len(a))
 
 	// Calculating frequency of each element
 	for i := 0; i < len(a); i++ {
@@ -104,7 +105,14 @@ func NFG(a []int) {
 	for i := 1; i < len(a); i++ {
 		if freq[a[stack.top]] > freq[a[i]] {
 			stack.Push(i)
-		}
+		}else{
+			for {
+				if !stack.IsEmpty() && freq[a[stack.top]] < freq[a[i]] {
+					res[stack.top] = a[i]
+					stack.Pop()
+				}
+			}
+		stack.Push(i)
 	}
 
 }
