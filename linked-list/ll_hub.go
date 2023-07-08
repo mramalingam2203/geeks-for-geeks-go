@@ -23,6 +23,21 @@ func main() {
 
 	//ll.findMiddleElement()
 	findGivenKey(ll, 3)
+	l2 := LinkedList{}
+
+	l2.insertAtBeginning(1)
+	l2.insertAtBeginning(2)
+	l2.insertAtEnd(3)
+	l2.insert(2, 4)
+	l2.insertAtEnd(5)
+	l2.insertAtEnd(3)
+	l2.insertAtEnd(5)
+	l2.insertAtEnd(3)
+	l2.insert(3, 5)
+	l2.insertAtEnd(3)
+	l2.insertAtEnd(3)
+	l2.insertAtEnd(3)
+	l2.insert(5, 4)
 
 }
 
@@ -157,7 +172,7 @@ func isCircularLL(ll LinkedList) bool {
 
 // https://www.geeksforgeeks.org/data-structures/linked-list/singly-linked-list/?ref=ghm
 
-func findEqual(ll1 LinkedList, ll2 LinkedList) bool {
+func checkIfEqual(ll1 LinkedList, ll2 LinkedList) bool {
 
 	if ll1.head == nil || ll2.head == nil {
 		return false
