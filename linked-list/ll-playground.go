@@ -150,3 +150,84 @@ func exchangeFirstAndLastNodes(head *Node) *Node {
 
 	return lastNode
 }
+
+// To check if a linked list has a loop (cycle) or not
+func hasCycle(head *Node) bool {
+	if head == nil || head.next == nil {
+		return false
+	}
+
+	slow := head
+	fast := head.next
+
+	for fast != nil && fast.next != nil {
+		if slow == fast {
+			return true
+		}
+		slow = slow.next
+		fast = fast.next.next
+	}
+
+	return false
+}
+
+// Given the head of a linked list. The task is to find if a loop exists in the linked list if yes then return the length of the loop in the linked list else return 0.
+
+func findLoopLength(head *Node) int {
+    if head == nil || head.next == nil {
+        return 0
+    }
+
+    slow := head
+    fast := head
+    loopExists := false
+
+    for fast != nil && fast.next != nil {
+        slow = slow.next
+        fast = fast.next.next
+
+        if slow == fast {
+            loopExists = true
+            break
+        }
+    }
+
+    if !loopExists {
+        return 0
+    }
+
+    count := 1
+    slow = slow.next
+
+    for slow != fast {
+        slow = slow.next
+        count++
+    }
+
+    return count
+}
+
+// To remove duplicate nodes from a sorted linked list in non-decreasing order
+func removeDuplicates(head *Node) {
+    if head == nil {
+        return
+    }
+
+    currentNode := head
+    for currentNode != nil && currentNode.next != nil {
+        if currentNode.data == currentNode.next.data {
+            currentNode.next = currentNode.next.next
+        } else {
+            currentNode = currentNode.next
+        }
+    }
+}
+
+func printList(head *Node) {
+    currentNode := head
+    for currentNode != nil {
+        fmt.Println(currentNode.data)
+        currentNode = currentNode.next
+    }
+}
+
