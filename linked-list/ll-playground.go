@@ -290,7 +290,17 @@ func deleteAlternateNode(head *Node) *Node {
 	return head
 }
 
-
-
 // https://www.geeksforgeeks.org/add-1-number-represented-linked-list/
 // Add 1 to a number represented as linked list
+
+func reverseList(head *Node) *Node {
+	var prev *Node
+	current := head
+	for current != nil {
+		next := current.next
+		current.next = prev
+		prev = current
+		current = next
+	}
+	return prev
+}
