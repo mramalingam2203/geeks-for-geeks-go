@@ -26,10 +26,14 @@ func main() {
 	node1 := &Node{data: "A"}
 	node2 := &Node{data: "B"}
 	node3 := &Node{data: "C"}
+	node4 := &Node{data: "D"}
+	node5 := &Node{data: "E"}
 
 	// Linking nodes
 	node1.next = node2
 	node2.next = node3
+	node3.next = node4
+	node4.next = node5
 
 	// Traversing the linked list
 	currentNode := node1
@@ -37,6 +41,8 @@ func main() {
 		fmt.Println(currentNode.data)
 		currentNode = currentNode.next
 	}
+
+	fmt.Println(findMiddleNode(node1).data)
 
 }
 
@@ -174,61 +180,73 @@ func hasCycle(head *Node) bool {
 // Given the head of a linked list. The task is to find if a loop exists in the linked list if yes then return the length of the loop in the linked list else return 0.
 
 func findLoopLength(head *Node) int {
-    if head == nil || head.next == nil {
-        return 0
-    }
+	if head == nil || head.next == nil {
+		return 0
+	}
 
-    slow := head
-    fast := head
-    loopExists := false
+	slow := head
+	fast := head
+	loopExists := false
 
-    for fast != nil && fast.next != nil {
-        slow = slow.next
-        fast = fast.next.next
+	for fast != nil && fast.next != nil {
+		slow = slow.next
+		fast = fast.next.next
 
-        if slow == fast {
-            loopExists = true
-            break
-        }
-    }
+		if slow == fast {
+			loopExists = true
+			break
+		}
+	}
 
-    if !loopExists {
-        return 0
-    }
+	if !loopExists {
+		return 0
+	}
 
-    count := 1
-    slow = slow.next
+	count := 1
+	slow = slow.next
 
-    for slow != fast {
-        slow = slow.next
-        count++
-    }
+	for slow != fast {
+		slow = slow.next
+		count++
+	}
 
-    return count
+	return count
 }
 
 // To remove duplicate nodes from a sorted linked list in non-decreasing order
 func removeDuplicates(head *Node) {
-    if head == nil {
-        return
-    }
+	if head == nil {
+		return
+	}
 
-    currentNode := head
-    for currentNode != nil && currentNode.next != nil {
-        if currentNode.data == currentNode.next.data {
-            currentNode.next = currentNode.next.next
-        } else {
-            currentNode = currentNode.next
-        }
-    }
+	currentNode := head
+	for currentNode != nil && currentNode.next != nil {
+		if currentNode.data == currentNode.next.data {
+			currentNode.next = currentNode.next.next
+		} else {
+			currentNode = currentNode.next
+		}
+	}
 }
 
 func printList(head *Node) {
-    currentNode := head
-    for currentNode != nil {
-        fmt.Println(currentNode.data)
-        currentNode = currentNode.next
-    }
+	currentNode := head
+	for currentNode != nil {
+		fmt.Println(currentNode.data)
+		currentNode = currentNode.next
+	}
 }
 
-fff
+// Make middle node head in a linked list
+// https://www.geeksforgeeks.org/make-middle-node-head-linked-list/
+
+func makeMiddleNodeHead(head *Node) *Node {
+	if head == nil {
+		fmt.Println("empty list")
+		return nil
+	}
+
+	findMiddleNode(head)
+	return head
+
+}
