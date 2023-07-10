@@ -61,7 +61,8 @@ func main() {
 	node2.next = node3
 	node3.next = node4
 	node4.next = node5
-
+	reverseList(node1)
+	printList(node5)
 }
 
 func deleteList(head *Node) {
