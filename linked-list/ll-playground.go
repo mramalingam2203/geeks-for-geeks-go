@@ -45,7 +45,17 @@ func main() {
 	fmt.Println("Middle node:", findMiddleNode(node1).data)
 	//makeMiddleNodeHead(node1)
 	deleteAlternateNode(node1)
+	deleteList(node1)
 
+}
+
+func deleteList(head *Node) {
+	current := head
+	for current != nil {
+		next := current.next
+		current.next = nil
+		current = next
+	}
 }
 
 // To find the middle node of a linked list in Go, you can use the "slow and fast pointer" technique
@@ -303,4 +313,12 @@ func reverseList(head *Node) *Node {
 		current = next
 	}
 	return prev
+}
+
+func addOneToNumber(head *Node) *Node {
+	reverseList(head)
+
+	//dummy
+	return head
+
 }
