@@ -252,3 +252,13 @@ func makeMiddleNodeHead(head *Node) *Node {
 	return head
 
 }
+
+// Delete alternate nodes of a singly linked list
+//https://www.geeksforgeeks.org/delete-alternate-nodes-of-a-linked-list/
+
+func deleteAlternateNode(head *Node) *Node {
+	if head == nil {
+		fmt.Println("empty list")
+		return nil
+	}
+	
