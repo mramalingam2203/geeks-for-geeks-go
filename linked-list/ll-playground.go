@@ -57,14 +57,23 @@ func main() {
 	node3 = &Node{data: 3}
 	node4 = &Node{data: 4}
 	node5 = &Node{data: 5}
+	node6 := &Node{data: 6}
+	node7 := &Node{data: 7}
+	node8 := &Node{data: 8}
+	node9 := &Node{data: 9}
 
 	// Linking nodes
 	node1.next = node2
 	node2.next = node3
 	node3.next = node4
 	node4.next = node5
+	node5.next = node6
+	node6.next = node7
+	node7.next = node8
+	node8.next = node9
 
 	findSumOfLastNNodes(node1, 4)
+	deleteEveryKthNode(node1, 2)
 
 }
 
@@ -304,6 +313,27 @@ func deleteAlternateNode(head *Node) {
 	currentNode := head
 	for currentNode != nil && currentNode.next != nil {
 		if i%2 == 0 {
+			currentNode.next = currentNode.next.next
+		} else {
+			currentNode = currentNode.next
+		}
+		i++
+	}
+	printList(head)
+}
+
+// Remove every k-th node of a singly linked list
+// https://www.geeksforgeeks.org/remove-every-k-th-node-linked-list/
+
+// To remove duplicate nodes from a sorted linked list in non-decreasing order
+func deleteEveryKthNode(head *Node, k int) {
+	if head == nil {
+		return
+	}
+	i := -1
+	currentNode := head
+	for currentNode != nil && currentNode.next != nil {
+		if i%k == 0 {
 			currentNode.next = currentNode.next.next
 		} else {
 			currentNode = currentNode.next
