@@ -2,7 +2,9 @@
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Node struct {
 	data interface{}
@@ -61,9 +63,10 @@ func main() {
 	node2.next = node3
 	node3.next = node4
 	node4.next = node5
-	reverseList(node1)
-	addOneToNumber(node5)
-	// printList(node5)
+
+	//	printList(node1)
+	findSumOfLastNNodes(node1, 4)
+
 }
 
 func deleteList(head *Node) {
@@ -325,6 +328,7 @@ func reverseList(head *Node) *Node {
 	return prev
 }
 
+/*
 func addOneToNumber(head *Node) *Node {
 	reverseList(head)
 	fmt.Println(head.data.(int))
@@ -359,4 +363,21 @@ func addOneToNumber(head *Node) *Node {
 
 	return head
 
+}
+*/
+
+func findSumOfLastNNodes(head *Node, n int) {
+	printList(head)
+	reverseList(head)
+	printList(head)
+
+	count := 0
+	sum := 0
+	//fmt.Println(head.data)
+	if count != n {
+		sum += head.data.(int)
+		count++
+		head = head.next
+	}
+	//fmt.Println(sum)
 }
