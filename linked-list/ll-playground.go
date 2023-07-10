@@ -43,6 +43,7 @@ func main() {
 	}
 
 	fmt.Println(findMiddleNode(node1).data)
+	fmt.Println(makeMiddleNodeHead(node1).data)
 
 }
 
@@ -246,7 +247,8 @@ func makeMiddleNodeHead(head *Node) *Node {
 		return nil
 	}
 
-	findMiddleNode(head)
+	head = findMiddleNode(head)
+	fmt.Println(head.data)
 	return head
 
 }
