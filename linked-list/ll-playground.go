@@ -64,7 +64,6 @@ func main() {
 	node3.next = node4
 	node4.next = node5
 
-	//	printList(node1)
 	findSumOfLastNNodes(node1, 4)
 
 }
@@ -367,13 +366,10 @@ func addOneToNumber(head *Node) *Node {
 */
 
 func findSumOfLastNNodes(head *Node, n int) {
-	printList(head)
-	reverseList(head)
-	printList(head)
 
 	count := 0
 	sum := 0
-	//fmt.Println(head.data)
+
 	if count != n {
 		sum += head.data.(int)
 		count++
