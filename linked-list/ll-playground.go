@@ -42,8 +42,9 @@ func main() {
 		currentNode = currentNode.next
 	}
 
-	fmt.Println(findMiddleNode(node1).data)
-	fmt.Println(makeMiddleNodeHead(node1).data)
+	fmt.Println("Middle node:", findMiddleNode(node1).data)
+	makeMiddleNodeHead(node1)
+	deleteAlternateNode(node1)
 
 }
 
@@ -248,7 +249,16 @@ func makeMiddleNodeHead(head *Node) *Node {
 	}
 
 	head = findMiddleNode(head)
-	fmt.Println(head.data)
+
+	fmt.Println("After making middle node head : ")
+
+	currentNode := head
+	for currentNode != nil {
+		fmt.Println(currentNode.data)
+		currentNode = currentNode.next
+	}
+
+	//fmt.Println(head.data)
 	return head
 
 }
@@ -261,4 +271,11 @@ func deleteAlternateNode(head *Node) *Node {
 		fmt.Println("empty list")
 		return nil
 	}
-	
+	currentNode := head
+
+	for currentNode != nil && currentNode.next != nil {
+		currentNode.next = currentNode.next.next
+	}
+
+	return head
+}
