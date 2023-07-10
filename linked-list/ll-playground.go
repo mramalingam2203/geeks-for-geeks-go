@@ -295,21 +295,22 @@ func makeMiddleNodeHead(head *Node) *Node {
 // Delete alternate nodes of a singly linked list
 //https://www.geeksforgeeks.org/delete-alternate-nodes-of-a-linked-list/
 
-func deleteAlternateNode(head *Node) *Node {
+// To remove duplicate nodes from a sorted linked list in non-decreasing order
+func deleteAlternateNode(head *Node) {
 	if head == nil {
-		fmt.Println("empty list")
-		return nil
+		return
 	}
+	i := 0
 	currentNode := head
-	i := -1
 	for currentNode != nil && currentNode.next != nil {
 		if i%2 == 0 {
 			currentNode.next = currentNode.next.next
+		} else {
+			currentNode = currentNode.next
 		}
 		i++
 	}
-
-	return head
+	printList(head)
 }
 
 // https://www.geeksforgeeks.org/add-1-number-represented-linked-list/
