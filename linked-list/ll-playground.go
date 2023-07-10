@@ -43,7 +43,7 @@ func main() {
 	}
 
 	fmt.Println("Middle node:", findMiddleNode(node1).data)
-	makeMiddleNodeHead(node1)
+	//makeMiddleNodeHead(node1)
 	deleteAlternateNode(node1)
 
 }
@@ -272,10 +272,25 @@ func deleteAlternateNode(head *Node) *Node {
 		return nil
 	}
 	currentNode := head
-
+	i := -1
 	for currentNode != nil && currentNode.next != nil {
-		currentNode.next = currentNode.next.next
+		if i%2 == 0 {
+			currentNode.next = currentNode.next.next
+		}
+		i++
 	}
 
+	fmt.Println("After deleting alternate nodes: ")
+
+	currentNode = head
+	for currentNode != nil {
+		fmt.Println(currentNode.data)
+		currentNode = currentNode.next
+	}
 	return head
 }
+
+
+
+// https://www.geeksforgeeks.org/add-1-number-represented-linked-list/
+// Add 1 to a number represented as linked list
