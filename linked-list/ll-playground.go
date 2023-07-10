@@ -22,12 +22,14 @@ type DoublyLinkedList struct {
 
 func main() {
 
+	var node1, node2, node3, node4, node5 *Node
+
 	// Creating nodes
-	node1 := &Node{data: "A"}
-	node2 := &Node{data: "B"}
-	node3 := &Node{data: "C"}
-	node4 := &Node{data: "D"}
-	node5 := &Node{data: "E"}
+	node1 = &Node{data: "A"}
+	node2 = &Node{data: "B"}
+	node3 = &Node{data: "C"}
+	node4 = &Node{data: "D"}
+	node5 = &Node{data: "E"}
 
 	// Linking nodes
 	node1.next = node2
@@ -46,6 +48,19 @@ func main() {
 	//makeMiddleNodeHead(node1)
 	deleteAlternateNode(node1)
 	deleteList(node1)
+
+	// Creating nodes
+	node1 = &Node{data: 1}
+	node2 = &Node{data: 2}
+	node3 = &Node{data: 3}
+	node4 = &Node{data: 4}
+	node5 = &Node{data: 5}
+
+	// Linking nodes
+	node1.next = node2
+	node2.next = node3
+	node3.next = node4
+	node4.next = node5
 
 }
 
