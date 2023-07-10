@@ -62,7 +62,8 @@ func main() {
 	node3.next = node4
 	node4.next = node5
 	reverseList(node1)
-	printList(node5)
+	addOneToNumber(node5)
+	// printList(node5)
 }
 
 func deleteList(head *Node) {
@@ -306,13 +307,6 @@ func deleteAlternateNode(head *Node) *Node {
 		i++
 	}
 
-	fmt.Println("After deleting alternate nodes: ")
-
-	currentNode = head
-	for currentNode != nil {
-		fmt.Println(currentNode.data)
-		currentNode = currentNode.next
-	}
 	return head
 }
 
@@ -333,8 +327,36 @@ func reverseList(head *Node) *Node {
 
 func addOneToNumber(head *Node) *Node {
 	reverseList(head)
+	fmt.Println(head.data.(int))
+	newNode = &Node{data: 0}
 
-	//dummy
+	while(head != NULL) //while both lists exist
+	{
+		// Calculate value of next digit in resultant list.
+		// The next digit is sum of following things
+		// (i) Carry
+		// (ii) Next digit of head list (if there is a
+		//     next digit)
+		sum = carry + head.data
+
+		// update carry for next calculation
+		if sum >= 10 {
+			carry = 1
+		} else {
+			carry = 0
+		}
+
+		// update sum if it is greater than 10
+		sum = sum % 10
+
+		// Create a new node with sum as data
+		head.data = sum
+
+		// Move head and second pointers to next nodes
+		temp = head
+		head = head.next
+	}
+
 	return head
 
 }
