@@ -74,6 +74,7 @@ func main() {
 
 	findSumOfLastNNodes(node1, 4)
 	deleteEveryKthNode(node1, 2)
+	fmt.Println(detectLoop(node1))
 
 }
 
@@ -412,18 +413,38 @@ func findSumOfLastNNodes(head *Node, n int) {
 // Detect loop or cycle in a linked list
 // https://www.geeksforgeeks.org/detect-loop-in-a-linked-list/
 
-func detectLoop(head *Node) *Node {
-	if head == nil {
-		fmt.Printf("empty list")
-		return head
+func detectLoop(head *Node) bool {
+	if head == nil || head.next == nil {
+		return false
 	}
 
+	tortoise := head
+	hare := head.next
+
+	for hare != nil && hare.next != nil {
+		if hare == tortoise {
+			return true
+		}
+		tortoise = tortoise.next
+		hare = hare.next.next
+	}
+
+	return false
+
+}
+
+
+func findLength)(head *Node) int{
+	for head == nil{
+		fmt.Println)"Empty string"
+		os.Exit(0)
+	}
+
+	i:=0
 	current := head
-	for current != nil {
-		next := current.next
-		current.next = prev
-		prev = current
-		current = next
+	for current != nil{
+		i++
+		current = current.next
 	}
-
+	return i
 }
