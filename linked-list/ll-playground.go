@@ -24,6 +24,10 @@ type DoublyLinkedList struct {
 }
 
 func main() {
+	demos()
+}
+
+func demos() {
 
 	var node1, node2, node3, node4, node5 *Node
 
@@ -58,10 +62,10 @@ func main() {
 	node3 = &Node{data: 3}
 	node4 = &Node{data: 4}
 	node5 = &Node{data: 5}
-	node6 := &Node{data: 6}
-	node7 := &Node{data: 7}
-	node8 := &Node{data: 8}
-	node9 := &Node{data: 9}
+	node6 := &Node{data: 4}
+	node7 := &Node{data: 3}
+	node8 := &Node{data: 2}
+	node9 := &Node{data: 1}
 
 	// Linking nodes
 	node1.next = node2
@@ -73,10 +77,11 @@ func main() {
 	node7.next = node8
 	node8.next = node9
 
-	findSumOfLastNNodes(node1, 4)
-	deleteEveryKthNode(node1, 2)
-	fmt.Println(detectLoop(node1))
-	fmt.Println(findLength(node1))
+	//	findSumOfLastNNodes(node1, 4)
+	//	deleteEveryKthNode(node1, 2)
+	//	fmt.Println(detectLoop(node1))
+	// fmt.Println(findLength(node1))
+	fmt.Println(checkPalindrome(node1))
 
 }
 
@@ -449,3 +454,31 @@ func findLength(head *Node) int {
 	}
 	return i
 }
+
+func checkPalindrome(head *Node) bool {
+	for head == nil {
+		fmt.Println("Empty string")
+		os.Exit(0)
+	}
+
+	//	reversed := reverseList(head)
+
+	i := findLength(head)
+
+	current := head
+	current_r := reversed
+
+	return true
+
+}
+
+func swapNodes(head *Node, val byte, val2 byte) *Node {
+	if head == nil{
+		fmt.Println("Empty list")
+		os.Exit(0)
+	}
+
+	current = head
+	for {
+		if current
+	}
