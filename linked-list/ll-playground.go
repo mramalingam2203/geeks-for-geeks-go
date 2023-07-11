@@ -473,15 +473,39 @@ func checkPalindrome(head *Node) bool {
 }
 
 func swapNodes(head *Node, val byte, val2 byte) *Node {
-	if head == nil{
+	if head == nil {
 		fmt.Println("Empty list")
 		os.Exit(0)
 	}
 
 	current = head
 	for {
-		if current.data == val1 || val2{
+		if current.data == val1 || val2 {
 			temp1 := current
 			current = current.next
 		}
 	}
+}
+
+func intersectionPointOfTwoLinkedLists(head1 *Node, head2 *Node) *Node {
+	if head1 == nil || head2 == nil {
+		fmt.Println("Empty lists")
+		return head1
+	}
+
+	current1 := head1
+	current2 := head2
+
+	for {
+		if current1 != current2 {
+			current1 = current1.next
+			current2 = current2.next
+		} else {
+			return current1
+		}
+	}
+
+	fmt.Println("no intersecting node")
+	return head1
+
+}
