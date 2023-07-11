@@ -480,5 +480,8 @@ func swapNodes(head *Node, val byte, val2 byte) *Node {
 
 	current = head
 	for {
-		if current
+		if current.data == val1 || val2{
+			temp1 := current
+			current = current.next
+		}
 	}
