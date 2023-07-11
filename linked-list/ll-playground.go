@@ -4,6 +4,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 )
 
 type Node struct {
@@ -75,6 +76,7 @@ func main() {
 	findSumOfLastNNodes(node1, 4)
 	deleteEveryKthNode(node1, 2)
 	fmt.Println(detectLoop(node1))
+	fmt.Println(findLength(node1))
 
 }
 
@@ -433,16 +435,15 @@ func detectLoop(head *Node) bool {
 
 }
 
-
-func findLength)(head *Node) int{
-	for head == nil{
-		fmt.Println)"Empty string"
+func findLength(head *Node) int {
+	for head == nil {
+		fmt.Println("Empty string")
 		os.Exit(0)
 	}
 
-	i:=0
+	i := 0
 	current := head
-	for current != nil{
+	for current != nil {
 		i++
 		current = current.next
 	}
