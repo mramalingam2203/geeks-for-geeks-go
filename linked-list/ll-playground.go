@@ -408,3 +408,22 @@ func findSumOfLastNNodes(head *Node, n int) {
 	}
 	//fmt.Println(sum)
 }
+
+// Detect loop or cycle in a linked list
+// https://www.geeksforgeeks.org/detect-loop-in-a-linked-list/
+
+func detectLoop(head *Node) *Node {
+	if head == nil {
+		fmt.Printf("empty list")
+		return head
+	}
+
+	current := head
+	for current != nil {
+		next := current.next
+		current.next = prev
+		prev = current
+		current = next
+	}
+
+}
