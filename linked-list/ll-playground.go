@@ -81,7 +81,8 @@ func demos() {
 	//	deleteEveryKthNode(node1, 2)
 	//	fmt.Println(detectLoop(node1))
 	// fmt.Println(findLength(node1))
-	fmt.Println(checkPalindrome(node1))
+	//fmt.Println(checkPalindrome(node1))
+	fmt.Println(intersectionPointOfTwoLinkedLists(node1, node1))
 
 }
 
@@ -455,6 +456,7 @@ func findLength(head *Node) int {
 	return i
 }
 
+/*
 func checkPalindrome(head *Node) bool {
 	for head == nil {
 		fmt.Println("Empty string")
@@ -472,6 +474,7 @@ func checkPalindrome(head *Node) bool {
 
 }
 
+
 func swapNodes(head *Node, val byte, val2 byte) *Node {
 	if head == nil {
 		fmt.Println("Empty list")
@@ -486,6 +489,7 @@ func swapNodes(head *Node, val byte, val2 byte) *Node {
 		}
 	}
 }
+*/
 
 func intersectionPointOfTwoLinkedLists(head1 *Node, head2 *Node) *Node {
 	if head1 == nil || head2 == nil {
@@ -507,5 +511,9 @@ func intersectionPointOfTwoLinkedLists(head1 *Node, head2 *Node) *Node {
 
 	fmt.Println("no intersecting node")
 	return head1
+
+}
+
+func findNodeAtNthPositionFromLast(head *Node, n int) *Node {
 
 }
