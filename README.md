@@ -1,1 +1,4 @@
-This is a transliteration source code pool for problems enlisted on geeksforgeeks.com
+
+
+This is a pool of problems of various categories from geeksforgeeks.com solved with golang. Not much emphasis in following go idioms though. 
+
