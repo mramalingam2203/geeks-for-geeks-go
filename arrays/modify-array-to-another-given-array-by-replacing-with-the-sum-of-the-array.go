@@ -5,18 +5,22 @@ package main
 import "fmt"
 
 func main() {
-	array := []int{9, 3, 5}
-	modifyArrayToAnother(array)
+	array := []int{9, 5, 3}
+	fmt.Println(largest(array))
+	fmt.Println(modifyArrayToAnother(array))
+	fmt.Println(allOnes(array))
 }
 
 func largest(array []int) int {
-	temp := array[0]
+	temp := 0
+	var idx int
 	for i := range array {
-		if array[0] > temp {
+		if array[i] > temp {
 			temp = array[i]
+			idx = i
 		}
 	}
-	return temp
+	return idx
 }
 
 func sumArray(array []int, largest int) int {
@@ -28,9 +32,22 @@ func sumArray(array []int, largest int) int {
 	return sum
 }
 
-func modifyArrayToAnother(target []int) bool {
-	for i := range target {
-		fmt.Println(largest(target))
+func allOnes(array []int) bool {
+	for i := 0; i < len(array); i++ {
+		if array[i] != 1 {
+			return false
+		}
+		continue
 	}
+	return true
+}
+
+func modifyArrayToAnother(target []int) bool {
+	var large int
+	//for allOnes(m) == false {
+	large = largest(target)
+	m := target[large] - sumArray(target, target[large])
+
+	fmt.Println(m)
 	return false
 }
