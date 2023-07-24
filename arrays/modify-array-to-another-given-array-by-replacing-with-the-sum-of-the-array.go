@@ -5,9 +5,8 @@ package main
 import "fmt"
 
 func main() {
-	array := []int{9, 5, 3}
-	fmt.Println(largest(array))
-	fmt.Println(modifyArrayToAnother(array))
+	array := []int{1, 1, 1, 2}
+
 	fmt.Println(allOnes(array))
 }
 
@@ -43,11 +42,12 @@ func allOnes(array []int) bool {
 }
 
 func modifyArrayToAnother(target []int) bool {
-	var large int
-	//for allOnes(m) == false {
-	large = largest(target)
-	m := target[large] - sumArray(target, target[large])
+	var idx int
+	for allOnes(target) == false {
+		idx = largest(target)
+		target[idx] = target[idx] - sumArray(target, target[idx])
+		fmt.Println(idx)
+	}
 
-	fmt.Println(m)
 	return false
 }
