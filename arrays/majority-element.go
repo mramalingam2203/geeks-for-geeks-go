@@ -2,17 +2,21 @@
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 func main() {
 	array := []int{3, 4, 3, 2, 4, 4, 4, 4}
-	findTheMajorityElement_naive(array)
-	findTheMajorityElement_mooresvoting(array)
-	findTheMajorityElement_hashing(array)
+	naive(array)
+	mooresvoting(array)
+	hashing(array)
+	sorting(array)
 }
 
 // Naive approach
-func findTheMajorityElement_naive(arr []int) {
+func naive(arr []int) {
 	n := len(arr)
 	count, maxCount := 0, 0
 	var index int
@@ -39,7 +43,7 @@ func findTheMajorityElement_naive(arr []int) {
 }
 
 // Binary Search Tree
-func findTheMajorityElement_BST(arr []int) {}
+func BST(arr []int) {}
 
 // Moore's Voting Algoprithm
 func findTheMajorityElement_mooresvoting(arr []int) {
@@ -77,7 +81,7 @@ func findTheMajorityElement_mooresvoting(arr []int) {
 	}
 }
 
-func findTheMajorityElement_hashing(arr []int) {
+func hashing(arr []int) {
 	hash := make(map[int]int)
 	n := len(arr)
 	count := 0
@@ -96,9 +100,24 @@ func findTheMajorityElement_hashing(arr []int) {
 	fmt.Println(hash)
 }
 
-func findTheMajorityElement_sorting(arr []int) {}
+func sorting(arr []int) {
+	sort.Ints(arr)
+	count := 0
+	n := len(n)
+	for i := 1; i < n; i++ {
+		if arr[i-1] == arr[i] {
+			count++
+		} else {
+			if count > n/2 {
+				fmt.Println(arr[n-1])
+			}
+			count = 1
+		}
+	}
+
+	fmt.Println("NO majority element")
+}
 
 func findTheMajorityElement_recursion(arr []int) {
 
-	
 }
