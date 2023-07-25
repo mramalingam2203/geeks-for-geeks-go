@@ -29,10 +29,11 @@ func main() {
 	// fmt.Println(getCombinations(array, 2))
 	// str := "010??10?101"
 	//PrintAllBinaryStrings(str, 0)
-	str := "abc"
+	str := "abc abc abc dabc abc bca abcd"
 	//findLargestSmallestWord(str)
 	//countPairs(str)
-	printAllPossibleSubstrings(str)
+	//printAllPossibleSubstrings(str)
+	secondMostRepeatedWordInASentence(str)
 
 }
 
@@ -161,4 +162,19 @@ func printAllPossibleSubstrings(s string) {
 			fmt.Println()
 		}
 	}
+}
+
+func secondMostRepeatedWordInASentence(s string) {
+	wordCount := make(map[string]int)
+	words := strings.Fields(s)
+
+	// Iterate through each word and update the map
+	for _, word := range words {
+		// Convert the word to lowercase to make the counting case-insensitive
+		word = strings.ToLower(word)
+		wordCount[word]++
+	}
+
+	fmt.Println(wordCount)
+
 }
