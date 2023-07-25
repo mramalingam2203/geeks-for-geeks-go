@@ -4,6 +4,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
 /* EASY
@@ -24,10 +25,12 @@ func main() {
 	fmt.Println(CountStringsWithConsecutveOnes_naive(5))
 	fmt.Println(CountStringsWithConsecutveOnes_bitwise(5))
 
-	array := []int{1, 0}
+	//array := []int{1, 0}
 	// fmt.Println(getCombinations(array, 2))
-	str := “1??0?101”
-	fmt.Println(GenerateAllBinaryStrings(str, 0))
+	// str := "010??10?101"
+	//PrintAllBinaryStrings(str, 0)
+	str := "Hello Muthu! How are you doing?"
+	findLargestSmallestWord(str)
 
 }
 
@@ -75,23 +78,48 @@ func CountStringsWithConsecutveOnes_bitwise(n int) int {
 }
 
 // https://www.geeksforgeeks.org/generate-all-binary-strings-from-given-pattern/
-
+/*
 func PrintAllBinaryStrings(string s, index int) {
 
-	if index == len(s)-1{
+	if index == len(s)-1 {
 		fmt.Println()
-	} 
+	}
 
-	if s[index] == '?'
-	{ 
+	if s[index] == '?' {
 		s[index] = '0'
 		PrintAllBinaryStrings(s, index+1)
 
 		s[index] = '1'
 		PrintAllBinaryStrings(s, index+1)
-	} else{
-        PrintAllBinaryStrings(str, index + 1);
+	} else {
+		PrintAllBinaryStrings(str, index+1)
 	}
+}
+*/
+func addBinaryString(s []string) {
 
+}
 
+func divideLargeNumber(s string, divisor int) {
+
+}
+
+func findLargestSmallestWord(s string) {
+	words := strings.Fields(s)
+	fmt.Println(len(words))
+	var min, max int
+	idx_min, idx_max := 0, 0
+	for i := 0; i < len(words); i++ {
+		if len(words[i]) < min {
+			min = len(words[i])
+			idx_min = i
+			fmt.Println(idx_min)
+		}
+		if len(words[i]) > max {
+			max = len(words[i])
+			idx_max = i
+			fmt.Println(idx_max, idx_max)
+		}
+	}
+	fmt.Println(words[idx_min], words[idx_max])
 }
