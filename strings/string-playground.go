@@ -22,15 +22,16 @@ import (
 */
 
 func main() {
-	fmt.Println(CountStringsWithConsecutveOnes_naive(5))
-	fmt.Println(CountStringsWithConsecutveOnes_bitwise(5))
+	//fmt.Println(CountStringsWithConsecutveOnes_naive(5))
+	//fmt.Println(CountStringsWithConsecutveOnes_bitwise(5))
 
 	//array := []int{1, 0}
 	// fmt.Println(getCombinations(array, 2))
 	// str := "010??10?101"
 	//PrintAllBinaryStrings(str, 0)
 	str := "Hello Muthu! How are you doing?"
-	findLargestSmallestWord(str)
+	//findLargestSmallestWord(str)
+	countPairs(str)
 
 }
 
@@ -122,4 +123,27 @@ func findLargestSmallestWord(s string) {
 		}
 	}
 	fmt.Println(words[idx_min], words[idx_max])
+}
+
+// Equal pars of a string
+func countPairs(s string) int {
+
+	wordCount := make(map[string]int)
+	words := strings.Fields(s)
+
+	// Iterate through each word and update the map
+	for _, word := range words {
+		// Convert the word to lowercase to make the counting case-insensitive
+		word = strings.ToLower(word)
+		wordCount[word]++
+	}
+
+	fmt.Println(wordCount)
+	//ans := 0
+
+	// for i := 0; i < 50; i++ {
+	// 	ans += cnt[i] * cnt[i]
+	// }
+
+	return 0
 }
