@@ -30,6 +30,13 @@ func max(array []int) int {
 }
 
 func minOps(arr []int, K int) int {
+	big := max(arr)
+	for i := 0; i < len(arr); i++ {
+
+		if (big-arr[i])%K != 0 {
+			return -1
+		}
+	}
 	return 0
 
 }
