@@ -5,6 +5,7 @@ package main
 import (
 	"fmt"
 	"strings"
+	_ "unicode"
 )
 
 /* EASY
@@ -29,11 +30,15 @@ func main() {
 	// fmt.Println(getCombinations(array, 2))
 	// str := "010??10?101"
 	//PrintAllBinaryStrings(str, 0)
-	str := "abc abc abc dabc abc bca abcd"
+	str := "geeksforgeeks"
 	//findLargestSmallestWord(str)
 	//countPairs(str)
 	//printAllPossibleSubstrings(str)
 	secondMostRepeatedWordInASentence(str)
+	//camelCase(str)
+	firstNonRepeatingChar(str)
+	kthNonRepeatingChar(str, 4)
+
 
 }
 
@@ -176,5 +181,63 @@ func secondMostRepeatedWordInASentence(s string) {
 	}
 
 	fmt.Println(wordCount)
+}
+
+// https://www.geeksforgeeks.org/camel-case-given-sentence/
+
+// func camelCase(s string) {
+// 	words := strings.Fields(s)
+// 	for i := 0; i < len(words); i++ {
+// 		words[i][0] = unicode.ToUpper(rune(words[i][0]))
+// 	}
+// }
+
+// https://www.geeksforgeeks.org/given-a-string-find-its-first-non-repeating-character/
+func firstNonRepeatingChar(s string) {
+	wordCount := make(map[rune]int)
+
+	// Iterate through each word and update the map
+	for _, character := range s {
+		// Convert the word to lowercase to make the counting case-insensitive
+		wordCount[character]++
+	}
+
+	var k rune
+	// Iterate through each word and update the map
+	for _, character := range s {
+		if wordCount[character] == 1 {
+			k = character
+			break
+		}
+	}
+
+	fmt.Println(string(k))
+
+}
+
+// https://www.geeksforgeeks.org/given-a-string-find-its-first-non-repeating-character/
+func kthNonRepeatingChar(s string, repeat int) {
+	wordCount := make(map[rune]int)
+
+	// Iterate through each word and update the map
+	for _, character := range s {
+		// Convert the word to lowercase to make the counting case-insensitive
+		wordCount[character]++
+	}
+
+	var k rune
+	var count := 0
+	// Iterate through each word and update the map
+	for _, character := range s {
+		if wordCount[character] == 1 {
+			k = character
+			count++
+			if count == repeat{
+				break
+			}
+		}
+	}
+
+	fmt.Println(string(k))
 
 }
