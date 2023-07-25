@@ -37,8 +37,7 @@ func main() {
 	secondMostRepeatedWordInASentence(str)
 	//camelCase(str)
 	firstNonRepeatingChar(str)
-	kthNonRepeatingChar(str, 4)
-
+	kthNonRepeatingChar(str, 3)
 
 }
 
@@ -88,9 +87,9 @@ func CountStringsWithConsecutveOnes_bitwise(n int) int {
 // https://www.geeksforgeeks.org/generate-all-binary-strings-from-given-pattern/
 /*
 func PrintAllBinaryStrings(string s, index int) {
-
 	if index == len(s)-1 {
 		fmt.Println()
+
 	}
 
 	if s[index] == '?' {
@@ -226,18 +225,14 @@ func kthNonRepeatingChar(s string, repeat int) {
 	}
 
 	var k rune
-	var count := 0
+	count := 0
 	// Iterate through each word and update the map
 	for _, character := range s {
-		if wordCount[character] == 1 {
+		if wordCount[character] == 1 && count != repeat {
 			k = character
 			count++
-			if count == repeat{
-				break
-			}
 		}
 	}
-
 	fmt.Println(string(k))
 
 }
