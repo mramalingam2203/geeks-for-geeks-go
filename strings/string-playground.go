@@ -128,7 +128,7 @@ func findLargestSmallestWord(s string) {
 // Equal pars of a string
 func countPairs(s string) int {
 
-	wordCount := make(map[string]int)
+	wordCount := make(map[int]int)
 	words := strings.Fields(s)
 
 	// Iterate through each word and update the map
@@ -139,11 +139,14 @@ func countPairs(s string) int {
 	}
 
 	fmt.Println(wordCount)
-	//ans := 0
 
-	// for i := 0; i < 50; i++ {
-	// 	ans += cnt[i] * cnt[i]
-	// }
+	// Stores the answer
+	ans := 0
 
-	return 0
+	// Traverse and check the occurrence of every character
+	for i := 0; i < 50; i++ {
+		ans += wordCount[i] * wordCount[i]
+	}
+	return ans
+
 }
