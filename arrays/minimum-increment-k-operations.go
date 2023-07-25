@@ -13,20 +13,23 @@ import (
 
 func main() {
 	array := []int{21, 33, 9, 45, 63}
+	k := 6
 	minOps(array, k)
+	fmt.Println(max(array))
 }
 
-func max(array []int) {
+func max(array []int) int {
 	n := len(array)
-	temp := math.MaxInt64
+	max := math.MinInt64
 	for i := 0; i < n; i++ {
-		if array[i] > temp {
-			temp = array[i]
+		if array[i] > max {
+			max = array[i]
 		}
 	}
-	return temp
+	return max
 }
 
 func minOps(arr []int, K int) int {
+	return 0
 
 }
