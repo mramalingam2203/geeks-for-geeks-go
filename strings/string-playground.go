@@ -24,8 +24,11 @@ func main() {
 	fmt.Println(CountStringsWithConsecutveOnes_naive(5))
 	fmt.Println(CountStringsWithConsecutveOnes_bitwise(5))
 
-	array := []int{1, 2, 3}
-	fmt.Println(getCombinations(array, 2))
+	array := []int{1, 0}
+	// fmt.Println(getCombinations(array, 2))
+	str := “1??0?101”
+	fmt.Println(GenerateAllBinaryStrings(str, 0))
+
 }
 
 func generateCombinations(arr []int, start, k int, combination []int, result *[][]int) {
@@ -69,4 +72,26 @@ func CountStringsWithConsecutveOnes_bitwise(n int) int {
 	}
 
 	return (1 << n) - a[n-1] - b[n-1]
+}
+
+// https://www.geeksforgeeks.org/generate-all-binary-strings-from-given-pattern/
+
+func PrintAllBinaryStrings(string s, index int) {
+
+	if index == len(s)-1{
+		fmt.Println()
+	} 
+
+	if s[index] == '?'
+	{ 
+		s[index] = '0'
+		PrintAllBinaryStrings(s, index+1)
+
+		s[index] = '1'
+		PrintAllBinaryStrings(s, index+1)
+	} else{
+        PrintAllBinaryStrings(str, index + 1);
+	}
+
+
 }
