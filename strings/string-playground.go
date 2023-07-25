@@ -2,6 +2,10 @@
 
 package main
 
+import (
+	"fmt"
+)
+
 /* EASY
 
 - Count strings with consecutive 1’s
@@ -17,18 +21,52 @@ package main
 */
 
 func main() {
+	fmt.Println(CountStringsWithConsecutveOnes_naive(5))
+	fmt.Println(CountStringsWithConsecutveOnes_bitwise(5))
 
-	CountStringsWithConsecutveOnes(3)
+	array := []int{1, 2, 3}
+	fmt.Println(getCombinations(array, 2))
 }
 
-func CountStringsWithConsecutveOnes(n int) int{
-	// Given a number n, count number of n length strings with consecutive 1’s in them.
-	var a[n], b[n] int
-	a[0], b[0] = 1,1
-	for i:=0; i < n; i++ {
-		a[i] = a[i - 1] + b[i - 1]
-        b[i] = a[i - 1]
+func generateCombinations(arr []int, start, k int, combination []int, result *[][]int) {
+	if k == 0 {
+		temp := make([]int, len(combination))
+		copy(temp, combination)
+		*result = append(*result, temp)
+		return
 	}
 
-	return (1 << n) - a[n - 1] - b[n - 1]
+	for i := start; i <= len(arr)-k; i++ {
+		combination = append(combination, arr[i])
+		generateCombinations(arr, i+1, k-1, combination, result)
+		combination = combination[:len(combination)-1]
+	}
+}
+
+func getCombinations(arr []int, k int) [][]int {
+	var result [][]int
+	var combination []int
+
+	generateCombinations(arr, 0, k, combination, &result)
+	return result
+}
+
+func CountStringsWithConsecutveOnes_naive(n int) int {
+
+	return 0
+
+}
+
+func CountStringsWithConsecutveOnes_bitwise(n int) int {
+	// Given a number n, count number of n length strings with consecutive 1’s in them.
+	a := make([]int, n)
+	b := make([]int, n)
+
+	a[0], b[0] = 1, 1
+	for i := 1; i < n; i++ {
+		a[i] = a[i-1] + b[i-1]
+		b[i] = a[i-1]
+	}
+
+	return (1 << n) - a[n-1] - b[n-1]
 }
