@@ -29,9 +29,10 @@ func main() {
 	// fmt.Println(getCombinations(array, 2))
 	// str := "010??10?101"
 	//PrintAllBinaryStrings(str, 0)
-	str := "Hello Muthu! How are you doing?"
+	str := "abc"
 	//findLargestSmallestWord(str)
-	countPairs(str)
+	//countPairs(str)
+	printAllPossibleSubstrings(str)
 
 }
 
@@ -128,7 +129,7 @@ func findLargestSmallestWord(s string) {
 // Equal pars of a string
 func countPairs(s string) int {
 
-	wordCount := make(map[int]int)
+	wordCount := make(map[string]int)
 	words := strings.Fields(s)
 
 	// Iterate through each word and update the map
@@ -143,10 +144,21 @@ func countPairs(s string) int {
 	// Stores the answer
 	ans := 0
 
-	// Traverse and check the occurrence of every character
-	for i := 0; i < 50; i++ {
-		ans += wordCount[i] * wordCount[i]
-	}
 	return ans
 
+}
+
+// https://www.geeksforgeeks.org/program-print-substrings-given-string/
+
+func printAllPossibleSubstrings(s string) {
+
+	for ln := 1; ln <= len(s); ln++ {
+		for i := 0; i <= len(s)-ln; i++ {
+			j := i + ln - 1
+			for k := i; k <= j; k++ {
+				fmt.Print(string(s[k]))
+			}
+			fmt.Println()
+		}
+	}
 }
