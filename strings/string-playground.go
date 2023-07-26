@@ -336,7 +336,7 @@ func leftRightRotateString(s string, d int) (string, string) {
 func removeChar(s string, c rune) {
 	for i := range s {
 		if s[i] == byte(c) {
-
+			break
 		}
 	}
 	//fmt.Println(s, string(c))
