@@ -39,7 +39,8 @@ func main() {
 	//kthNonRepeatingChar(str, 3)
 	//lexicographicallyNext(str)
 	//palindromeSubstrings(str, 0, 10)
-	fmt.Println(minimumRotationsRequired(str))
+	//fmt.Println(minimumRotationsRequired(str))
+	reverseStringIter(str)
 
 }
 
@@ -279,4 +280,15 @@ func minimumRotationsRequired(s string) int {
 
 	}
 	return n
+}
+
+// https://www.geeksforgeeks.org/program-reverse-string-iterative-recursive/
+
+func reverseStringIter(s string) {
+	n := len(s)
+	for i := range s {
+		s[i], s[n-i-1] = s[n-i-1], s[i]
+	}
+	fmt.Println(s)
+
 }
