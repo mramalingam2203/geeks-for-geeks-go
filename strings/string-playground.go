@@ -286,9 +286,5 @@ func minimumRotationsRequired(s string) int {
 
 func reverseStringIter(s string) {
 	n := len(s)
-	for i := range s {
-		s[i], s[n-i-1] = s[n-i-1], s[i]
-	}
-	fmt.Println(s)
-
+	s_rev := make([]byte, n)
 }
