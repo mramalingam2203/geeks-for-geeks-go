@@ -23,15 +23,30 @@
 
 */
 
-package sliceplayground
+package main
+
+import "fmt"
 
 func main() {
 	createSlices()
 }
 
 func createSlices() {
-	int_slice := make([]int{1, 2, 3}
-	float_slice := make([]float{1.0,2,0, -3.0, -4.0}
-	bool_slice := make([]bool{true, false, false, true, false}
-	int_int_slice := make([][]int) {1,2,3,4}, {1,2,3}, {0, 1, 2, 3, 4,5}}
+	// int_slice := make([]int, 3)
+	// float_slice := make([]float32, 3)
+	// bool_slice := make([]bool, 3)
+	rows := 3
+	cols := 3
+	// any_slice := make([]interface{}, 3)
+	any_2DSlice := make([][]interface{}, rows)
+	// Initialize each row with values
+
+	for i := 0; i < rows; i++ {
+		any_2DSlice[i] = make([]interface{}, cols)
+		for j := 0; j < cols; j++ {
+			any_2DSlice[i][j] = (i*cols + j + 1) // Assigning values based on the position
+		}
 	}
+
+	fmt.Println(any_2DSlice)
+}
