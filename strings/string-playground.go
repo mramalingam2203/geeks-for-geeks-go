@@ -294,3 +294,16 @@ func reverseStringIter(s string) {
 
 	fmt.Println(string(s_rev))
 }
+
+//https://www.geeksforgeeks.org/print-the-frequency-of-each-character-in-alphabetical-order/
+func charFrequency(s string) {
+	wordCount := make(map[rune]int)
+
+	// Iterate through each word and update the map
+	for _, character := range s {
+		// Convert the word to lowercase to make the counting case-insensitive
+		wordCount[character]++
+	}
+
+	fmt.Println(wordCount)
+}
