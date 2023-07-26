@@ -4,7 +4,7 @@ package main
 
 import (
 	"fmt"
-	"sort"
+	//"sort"
 	"strings"
 	_ "unicode"
 )
@@ -30,7 +30,7 @@ func main() {
 	// fmt.Println(getCombinations(array, 2))
 	// str := "010??10?101"
 	//PrintAllBinaryStrings(str, 0)
-	str := "geeksforgeeks"
+	str := "GeeksForGeeks"
 	//findLargestSmallestWord(str)
 	//countPairs(str)
 	//printAllPossibleSubstrings(str)
@@ -42,7 +42,8 @@ func main() {
 	//palindromeSubstrings(str, 0, 10)
 	//fmt.Println(minimumRotationsRequired(str))
 	reverseStringIter(str)
-	charFrequency(str)
+	// charFrequency(str)
+	leftRightRotateString(str, 2)
 
 }
 
@@ -286,7 +287,7 @@ func minimumRotationsRequired(s string) int {
 
 // https://www.geeksforgeeks.org/program-reverse-string-iterative-recursive/
 
-func reverseStringIter(s string) {
+func reverseStringIter(s string) string {
 	n := len(s)
 	s_rev := make([]byte, 0)
 
@@ -294,21 +295,38 @@ func reverseStringIter(s string) {
 		s_rev = append(s_rev, s[n-i-1])
 	}
 
-	fmt.Println(string(s_rev))
+	return string(s_rev)
 }
 
-//https://www.geeksforgeeks.org/print-the-frequency-of-each-character-in-alphabetical-order/
-func charFrequency(s string) {
+// //https://www.geeksforgeeks.org/print-the-frequency-of-each-character-in-alphabetical-order/
+// func charFrequency(s string) {
 
-	sorted_s := sort.Strings(s)
-	fmt.Println(sorted_s)
-	wordCount := make(map[string]int)
+// 	sorted_s := sort.Strings(s)
+// 	fmt.Println(sorted_s)
+// 	wordCount := make(map[string]int)
 
-	// Iterate through each word and update the map
-	for _, character := range s {
-		// Convert the word to lowercase to make the counting case-insensitive
-		wordCount[string(character)]++
-	}
-	fmt.Println(wordCount)
+// 	// Iterate through each word and update the map
+// 	for _, character := range s {
+// 		// Convert the word to lowercase to make the counting case-insensitive
+// 		wordCount[string(character)]++
+// 	}
+// 	fmt.Println(wordCount)
 
+// }
+
+// https://www.geeksforgeeks.org/left-rotation-right-rotation-string-2/
+
+func leftRightRotateString(s string, d int) (string, string) {
+	n := len(s)
+	s1 := reverseStringIter(s[0:d])
+	s2 := reverseStringIter(s[d:n])
+	left_rotate := reverseStringIter(s1 + s2)
+	fmt.Println(left_rotate)
+
+	// right_rotate
+	s1 = reverseStringIter(s[0 : n-d])
+	s2 = reverseStringIter(s[n-d : n])
+	right_rotate := reverseStringIter(s1 + s2)
+	fmt.Println(right_rotate)
+	return left_rotate, right_rotate
 }
