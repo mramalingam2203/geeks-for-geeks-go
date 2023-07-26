@@ -4,6 +4,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 	"strings"
 	_ "unicode"
 )
@@ -29,7 +30,7 @@ func main() {
 	// fmt.Println(getCombinations(array, 2))
 	// str := "010??10?101"
 	//PrintAllBinaryStrings(str, 0)
-	str := "abc"
+	str := "geeksforgeeks"
 	//findLargestSmallestWord(str)
 	//countPairs(str)
 	//printAllPossibleSubstrings(str)
@@ -41,6 +42,7 @@ func main() {
 	//palindromeSubstrings(str, 0, 10)
 	//fmt.Println(minimumRotationsRequired(str))
 	reverseStringIter(str)
+	charFrequency(str)
 
 }
 
@@ -297,13 +299,16 @@ func reverseStringIter(s string) {
 
 //https://www.geeksforgeeks.org/print-the-frequency-of-each-character-in-alphabetical-order/
 func charFrequency(s string) {
-	wordCount := make(map[rune]int)
+
+	sorted_s := sort.Strings(s)
+	fmt.Println(sorted_s)
+	wordCount := make(map[string]int)
 
 	// Iterate through each word and update the map
 	for _, character := range s {
 		// Convert the word to lowercase to make the counting case-insensitive
-		wordCount[character]++
+		wordCount[string(character)]++
 	}
-
 	fmt.Println(wordCount)
+
 }
