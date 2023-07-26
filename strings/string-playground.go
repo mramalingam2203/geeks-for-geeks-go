@@ -29,17 +29,17 @@ func main() {
 	// fmt.Println(getCombinations(array, 2))
 	// str := "010??10?101"
 	//PrintAllBinaryStrings(str, 0)
-	str := "geeksforgeeks"
+	str := "abc"
 	//findLargestSmallestWord(str)
 	//countPairs(str)
 	//printAllPossibleSubstrings(str)
-	secondMostRepeatedWordInASentence(str)
+	//secondMostRepeatedWordInASentence(str)
 	//camelCase(str)
-	firstNonRepeatingChar(str)
-	kthNonRepeatingChar(str, 3)
+	//firstNonRepeatingChar(str)
+	//kthNonRepeatingChar(str, 3)
 	//lexicographicallyNext(str)
-	palindromeSubstrings(str, 0, 10)
-	minimumRotationsRequired(str)
+	//palindromeSubstrings(str, 0, 10)
+	fmt.Println(minimumRotationsRequired(str))
 
 }
 
@@ -268,10 +268,15 @@ func palindromeSubstrings(s string, l, r int) {
 
 // https://www.geeksforgeeks.org/minimum-rotations-required-get-string/
 
-func minimumRotationsRequired(s string) {
+func minimumRotationsRequired(s string) int {
 	//count := 0
+	n := len(s)
 	temp := s + s
-	fmt.Println(temp)
-	fmt.Println(temp[2 : len(s)-1])
+	for i := 1; i <= n; i++ {
+		if s == temp[i:n] {
+			return i
+		}
 
+	}
+	return n
 }
