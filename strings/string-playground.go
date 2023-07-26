@@ -25,12 +25,11 @@ import (
 func main() {
 	//fmt.Println(CountStringsWithConsecutveOnes_naive(5))
 	//fmt.Println(CountStringsWithConsecutveOnes_bitwise(5))
-
 	//array := []int{1, 0}
 	// fmt.Println(getCombinations(array, 2))
 	// str := "010??10?101"
 	//PrintAllBinaryStrings(str, 0)
-	str := "abaaabaaaba"
+	str := "geeksforgeeks"
 	//findLargestSmallestWord(str)
 	//countPairs(str)
 	//printAllPossibleSubstrings(str)
@@ -40,6 +39,7 @@ func main() {
 	kthNonRepeatingChar(str, 3)
 	//lexicographicallyNext(str)
 	palindromeSubstrings(str, 0, 10)
+	minimumRotationsRequired(str)
 
 }
 
@@ -263,5 +263,15 @@ func isPalindrome(s string) bool {
 
 func palindromeSubstrings(s string, l, r int) {
 	fmt.Println(isPalindrome(s[l : r+1]))
+
+}
+
+// https://www.geeksforgeeks.org/minimum-rotations-required-get-string/
+
+func minimumRotationsRequired(s string) {
+	//count := 0
+	temp := s + s
+	fmt.Println(temp)
+	fmt.Println(temp[2 : len(s)-1])
 
 }
