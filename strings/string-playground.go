@@ -41,9 +41,11 @@ func main() {
 	//lexicographicallyNext(str)
 	//palindromeSubstrings(str, 0, 10)
 	//fmt.Println(minimumRotationsRequired(str))
-	reverseStringIter(str)
+	// reverseStringIter(str)
 	// charFrequency(str)
-	leftRightRotateString(str, 2)
+	// leftRightRotateString(str, 2)
+	var character rune = 's'
+	removeChar(str, character)
 
 }
 
@@ -329,4 +331,14 @@ func leftRightRotateString(s string, d int) (string, string) {
 	right_rotate := reverseStringIter(s1 + s2)
 	fmt.Println(right_rotate)
 	return left_rotate, right_rotate
+}
+
+func removeChar(s string, c rune) {
+	for i := range s {
+		if s[i] == byte(c) {
+
+		}
+	}
+	//fmt.Println(s, string(c))
+
 }
