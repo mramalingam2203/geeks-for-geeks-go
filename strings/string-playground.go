@@ -44,8 +44,10 @@ func main() {
 	// reverseStringIter(str)
 	// charFrequency(str)
 	// leftRightRotateString(str, 2)
-	var character rune = 's'
-	removeChar(str, character)
+	// var character rune = 's'
+	// removeChar(str, character)
+	// printSubSequence(str, " ")
+	loose(str)
 
 }
 
@@ -341,4 +343,10 @@ func removeChar(s string, c rune) {
 	}
 	//fmt.Println(s, string(c))
 
+}
+
+func loose(s string) {
+	for i := range s {
+		s[i] = uint('0')
+	}
 }
