@@ -30,7 +30,7 @@ func main() {
 	// fmt.Println(getCombinations(array, 2))
 	// str := "010??10?101"
 	//PrintAllBinaryStrings(str, 0)
-	str := "geeksforgeeks"
+	str := "abaaabaaaba"
 	//findLargestSmallestWord(str)
 	//countPairs(str)
 	//printAllPossibleSubstrings(str)
@@ -38,6 +38,8 @@ func main() {
 	//camelCase(str)
 	firstNonRepeatingChar(str)
 	kthNonRepeatingChar(str, 3)
+	//lexicographicallyNext(str)
+	palindromeSubstrings(str, 0, 10)
 
 }
 
@@ -234,5 +236,32 @@ func kthNonRepeatingChar(s string, repeat int) {
 		}
 	}
 	fmt.Println(string(k))
+
+}
+
+// https://www.geeksforgeeks.org/lexicographically-next-string/
+
+// func lexicographicallyNext(s string) {
+// 	r := []rune(s)
+
+// }
+
+// https://www.geeksforgeeks.org/palindrome-substring-queries/
+/*
+Given a string and several queries on the substrings of the given input
+string to check whether the substring is a palindrome or not.
+*/
+
+func isPalindrome(s string) bool {
+	for i := 0; i < len(s); i++ {
+		if s[i] != s[len(s)-i-1] {
+			return false
+		}
+	}
+	return true
+}
+
+func palindromeSubstrings(s string, l, r int) {
+	fmt.Println(isPalindrome(s[l : r+1]))
 
 }
