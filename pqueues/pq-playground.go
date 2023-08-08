@@ -17,6 +17,11 @@ func NewMaxHeap() *MaxHeap {
 	return &MaxHeap{}
 }
 
+func (h *MaxHeap) Push(val int) {
+	h.heap = append(h.heap, val)
+	h.heapifyUp(len(h.heap) - 1)
+}
+
 func (h *MaxHeap) heapifyUp(index int) {
 	for index > 0 {
 		parentIndex := (index - 1) / 2
