@@ -2,12 +2,19 @@
 
 package main
 
-func main() {
+import "fmt"
 
+func main() {
+	h := NewMaxHeap()
+	fmt.Println(h)
 }
 
 type MaxHeap struct {
 	heap []int
+}
+
+func NewMaxHeap() *MaxHeap {
+	return &MaxHeap{}
 }
 
 func (h *MaxHeap) heapifyUp(index int) {
@@ -28,21 +35,20 @@ func (h *MaxHeap) heapifyDown(index int) {
 		leftChildIndex := 2*index + 1
 		rightChildIndex := 2*index + 2
 		largestIndex := index
-	}
 
-	if leftChildIndex < len(h.heap) && h.heap[leftChildIndex] > h.heap[largestIndex] {
-		largestIndex = leftChildIndex
-	}
+		if leftChildIndex < len(h.heap) && h.heap[leftChildIndex] > h.heap[largestIndex] {
+			largestIndex = leftChildIndex
+		}
 
-	if rightChildIndex < len(h.heap) && h.heap[rightChildIndex] > h.heap[largestIndex] {
-		largestIndex = rightChildIndex
-	}
+		if rightChildIndex < len(h.heap) && h.heap[rightChildIndex] > h.heap[largestIndex] {
+			largestIndex = rightChildIndex
+		}
 
-	if largestIndex == index {
-		break
-	}
+		if largestIndex == index {
+			break
+		}
 
-	h.heap[index], h.heap[largestIndex] = h.heap[largestIndex], h.heap[index]
-	index = largestIndex
-}
+		h.heap[index], h.heap[largestIndex] = h.heap[largestIndex], h.heap[index]
+		index = largestIndex
+	}
 }
