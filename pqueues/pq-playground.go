@@ -25,3 +25,12 @@ func (h *MaxHeap) heapifyUp(index int) {
 	}
 
 }
+
+func (h *MaxHeap) heapifyDown(index int) {
+	for {
+
+		leftChildIndex := 2*index + 1
+		rightChildIndex := 2*index + 2
+	}
+
+}
