@@ -2,7 +2,9 @@
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	pq := NewMaxHeap()
@@ -16,6 +18,12 @@ func main() {
 
 	fmt.Println("Popped:", pq.Pop()) // Output: Popped: 10
 	fmt.Println("Popped:", pq.Pop()) // Output: Popped: 8
+	fmt.Println("Length now:", pq.Len())
+
+	nums := []int{3, 1, 4, 1, 5, 9, 2, 6}
+	k := 3
+	kthLargest := findKthLargest(nums, k)
+	fmt.Printf("The %dth largest element is: %d\n", k, kthLargest)
 
 }
 
@@ -30,6 +38,11 @@ func NewMaxHeap() *MaxHeap {
 func (h *MaxHeap) Push(val int) {
 	h.heap = append(h.heap, val)
 	h.heapifyUp(len(h.heap) - 1)
+}
+
+func (h *MaxHeap) Len() int {
+	return len(h.heap)
+
 }
 
 func (h *MaxHeap) Pop() int {
@@ -86,4 +99,20 @@ func (h *MaxHeap) heapifyDown(index int) {
 		h.heap[index], h.heap[largestIndex] = h.heap[largestIndex], h.heap[index]
 		index = largestIndex
 	}
+}
+
+/*
+Kth Largest Element in an Array: Given an array of integers, find the kth largest element. You can solve this problem using a min-heap. Keep the heap's size limited to k, and as you traverse the array, insert elements into the heap. If the heap size exceeds k, remove the smallest element. At the end, the heap's top element will be the kth largest.
+*/
+
+func findKthLargest(nums []int, k int) int {
+	pq := NewMaxHeap()
+	for _, num := range nums {
+		pq.Push(num)
+		if pq.Len() > k {
+			pq.Pop()
+		}
+	}
+
+	return pq.heap[0]
 }
