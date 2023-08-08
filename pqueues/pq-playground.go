@@ -5,8 +5,18 @@ package main
 import "fmt"
 
 func main() {
-	h := NewMaxHeap()
-	fmt.Println(h)
+	pq := NewMaxHeap()
+
+	pq.Push(5)
+	pq.Push(10)
+	pq.Push(3)
+	pq.Push(8)
+
+	fmt.Println("Max element:", pq.Peek()) // Output: Max element: 10
+
+	fmt.Println("Popped:", pq.Pop()) // Output: Popped: 10
+	fmt.Println("Popped:", pq.Pop()) // Output: Popped: 8
+
 }
 
 type MaxHeap struct {
@@ -20,6 +30,26 @@ func NewMaxHeap() *MaxHeap {
 func (h *MaxHeap) Push(val int) {
 	h.heap = append(h.heap, val)
 	h.heapifyUp(len(h.heap) - 1)
+}
+
+func (h *MaxHeap) Pop() int {
+	if len(h.heap) == 0 {
+		return -1 // Handle empty heap case
+	}
+
+	max := h.heap[0]
+	h.heap[0] = h.heap[len(h.heap)-1]
+	h.heap = h.heap[:len(h.heap)-1]
+	h.heapifyDown(0)
+
+	return max
+}
+
+func (h *MaxHeap) Peek() int {
+	if len(h.heap) == 0 {
+		return -1 // Handle empty heap case
+	}
+	return h.heap[0]
 }
 
 func (h *MaxHeap) heapifyUp(index int) {
