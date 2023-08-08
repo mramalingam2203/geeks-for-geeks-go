@@ -2,10 +2,6 @@
 
 package main
 
-import (
-	"fmt"
-)
-
 func main() {
 
 }
@@ -31,6 +27,22 @@ func (h *MaxHeap) heapifyDown(index int) {
 
 		leftChildIndex := 2*index + 1
 		rightChildIndex := 2*index + 2
+		largestIndex := index
 	}
 
+	if leftChildIndex < len(h.heap) && h.heap[leftChildIndex] > h.heap[largestIndex] {
+		largestIndex = leftChildIndex
+	}
+
+	if rightChildIndex < len(h.heap) && h.heap[rightChildIndex] > h.heap[largestIndex] {
+		largestIndex = rightChildIndex
+	}
+
+	if largestIndex == index {
+		break
+	}
+
+	h.heap[index], h.heap[largestIndex] = h.heap[largestIndex], h.heap[index]
+	index = largestIndex
+}
 }
