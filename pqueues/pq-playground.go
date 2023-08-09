@@ -26,6 +26,16 @@ func main() {
 	kthLargest := findKthLargest(nums, k)
 	fmt.Printf("The %dth largest element is: %d\n", k, kthLargest)
 
+	/* merge k sorted arrays */
+	arrays := [][]int{
+		{0, 1, 4, 7},
+		{2, 5, 8},
+		{3, 6, 9},
+	}
+
+	merged := mergeKSortedArrays(arrays)
+	fmt.Println("Merged Sorted Array:", merged)
+
 }
 
 type MaxHeap struct {
@@ -122,6 +132,7 @@ func findKthLargest(nums []int, k int) int {
 Given k sorted linked lists, merge them into a single sorted linked list. This problem can be solved using a min-heap. You can insert the first element from each list into the heap and then keep popping the smallest element and insert the next element from the corresponding list until all lists are exhausted.
 */
 func mergeKSortedArrays(arrays [][]int) []int {
+
 	pq := NewMaxHeap()
 
 	// Initialize the heap with the last element of each array
@@ -132,9 +143,11 @@ func mergeKSortedArrays(arrays [][]int) []int {
 	}
 
 	merged := []int{}
+	var maxValue int
+
 	for pq.Len() > 0 {
 
-		maxValue := pq.Pop()
+		maxValue = pq.Pop()
 		merged = append(merged, maxValue)
 
 	}
@@ -146,5 +159,14 @@ func mergeKSortedArrays(arrays [][]int) []int {
 			break
 		}
 	}
+
+	// Push the next element from the corresponding array onto the heap
+	for i := range arrays {
+		if len(arrays[i]) > 0 {
+			pq.Push(arrays[i][len(arrays[i])-1])
+		}
+	}
+
+	return merged
 
 }
