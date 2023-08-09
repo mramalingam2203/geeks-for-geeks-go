@@ -20,6 +20,7 @@ func main() {
 	fmt.Println("Popped:", pq.Pop()) // Output: Popped: 8
 	fmt.Println("Length now:", pq.Len())
 
+	/* find the k-th largest element in an array */
 	nums := []int{3, 1, 4, 1, 5, 9, 2, 6}
 	k := 3
 	kthLargest := findKthLargest(nums, k)
@@ -116,3 +117,8 @@ func findKthLargest(nums []int, k int) int {
 
 	return pq.heap[0]
 }
+
+/*
+Given k sorted linked lists, merge them into a single sorted linked list. This problem can be solved using a min-heap. You can insert the first element from each list into the heap and then keep popping the smallest element and insert the next element from the corresponding list until all lists are exhausted.
+*/
+func mergeKSortedArrays(arrays [][]int) []int {
