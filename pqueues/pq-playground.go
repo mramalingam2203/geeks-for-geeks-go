@@ -134,6 +134,17 @@ func mergeKSortedArrays(arrays [][]int) []int {
 	merged := []int{}
 	for pq.Len() > 0 {
 
+		maxValue := pq.Pop()
+		merged = append(merged, maxValue)
+
+	}
+
+	// Find the array that contained the popped element
+	for i := range arrays {
+		if len(arrays[i]) > 0 && arrays[i][len(arrays[i])-1] == maxValue {
+			arrays[i] = arrays[i][:len(arrays[i])-1]
+			break
+		}
 	}
 
 }
